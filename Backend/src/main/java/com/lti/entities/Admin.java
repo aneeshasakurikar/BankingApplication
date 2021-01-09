@@ -2,14 +2,20 @@ package com.lti.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="admin_table")
 public class Admin {
 
 	@Id
 	private int adminId;
 	private String adminName;
 	private String adminPassword;
+	
+	@OneToOne
+	private UserDetails user;
 
 	public Admin() {
 	}

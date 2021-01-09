@@ -6,15 +6,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity
-@SequenceGenerator(name = "account_gen", sequenceName = "account_gen",  initialValue = 1000000)
+@Table(name="user_details_table")
+@SequenceGenerator(name = "account_gen", sequenceName = "account_gen",  initialValue = 10000)
 public class UserDetails {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO, generator = "account_gen")
-	private int accountNumber;
+	private int referenceId;
+	
 	private String title;
 	private String firstName;
 	private String middleName;
@@ -28,11 +32,18 @@ public class UserDetails {
 	private String sourceOfIncome;
 	private String annualIncome;
 	private boolean netBanking;
+	
+	@OneToOne
+	private Address address;
+	
+	@OneToOne
+	private AccountDetails accountDetails;
+	
 	public int getAccountNumber() {
-		return accountNumber;
+		return referenceId;
 	}
 	public void setAccountNumber(int accountNumber) {
-		this.accountNumber = accountNumber;
+		this.referenceId = accountNumber;
 	}
 	public String getTitle() {
 		return title;

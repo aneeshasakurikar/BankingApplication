@@ -7,8 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="transaction_table")
 @SequenceGenerator(name = "transaction_gen", sequenceName = "transaction_gen",  initialValue = 1000000)
 public class Transaction {
 

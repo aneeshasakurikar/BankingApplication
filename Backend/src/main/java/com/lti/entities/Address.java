@@ -1,21 +1,24 @@
 package com.lti.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="address_table")
 public class Address {
 
-	@OneToOne
-	@JoinColumn
-	private UserDetails accountNumber;
+	@Id
+	private  int addressId;
+	
 	private String 	addressLine1;
 	private String addressLine2;
 	private String landmark;
 	private String state;
 	private String city;
 	private int pincode;
+	
 	
 	public String getAddressLine1() {
 		return addressLine1;
