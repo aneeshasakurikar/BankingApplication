@@ -10,8 +10,12 @@ import { CheckStatusComponent } from './check-status/check-status.component';
 import { NetbankingRegistrationComponent } from './netbanking-registration/netbanking-registration.component';
 import { ForgotUserIdComponent } from './forgot-user-id/forgot-user-id.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+
 import { FormsModule } from '@angular/forms';
 import { SetNewPasswordComponent } from './set-new-password/set-new-password.component';
+
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { SetNewPasswordComponent } from './set-new-password/set-new-password.com
     NetbankingRegistrationComponent,
     ForgotUserIdComponent,
     ForgotPasswordComponent,
-    SetNewPasswordComponent
+
+    SetNewPasswordComponent,
+
+    AdminLoginComponent
+
   ],
   imports: [
     BrowserModule,

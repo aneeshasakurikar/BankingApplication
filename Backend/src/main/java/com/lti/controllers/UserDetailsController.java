@@ -9,10 +9,10 @@ import com.lti.services.UserDetailsServiceImpl;
 @RestController
 public class UserDetailsController {
 
-	@Autowired
+	//@Autowired
 	UserDetailsServiceImpl userDetailsService;
 	
-	@PostMapping(path="/register")
+	//@PostMapping(path="/register")
 	public void registerUser() {
 		
 	}

@@ -10,7 +10,7 @@ import com.lti.services.BeneficiaryServiceImpl;
 @RestController
 public class BeneficiaryController {
 
-	@Autowired
+	//@Autowired
 	BeneficiaryServiceImpl beneficiaryService;
 	
 	@PostMapping(path="/addBeneficiary")
