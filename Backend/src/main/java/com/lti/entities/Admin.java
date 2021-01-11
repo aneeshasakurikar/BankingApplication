@@ -8,11 +8,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "admin_table")
-@NamedQuery(name = "logincheck", query = "select admin.adminUserID from Admin admin where admin.adminUserID=:user and admin.adminPassword=:pass\r\n")
+@NamedQuery(name = "logincheck", query = "select admin.adminId from Admin admin where admin.adminId=:user and admin.adminPassword=:pass\r\n")
 public class Admin {
 
 	@Id
-	private String adminId;
+	private int adminId;
 	private String adminName;
 	private String adminPassword;
 
@@ -22,18 +22,18 @@ public class Admin {
 	public Admin() {
 	}
 
-	public Admin(String adminId, String adminName, String adminPassword) {
+	public Admin(int adminId, String adminName, String adminPassword) {
 		super();
 		this.adminId = adminId;
 		this.adminName = adminName;
 		this.adminPassword = adminPassword;
 	}
 
-	public String getAdminId() {
+	public int getAdminId() {
 		return adminId;
 	}
 
-	public void setAdminId(String adminId) {
+	public void setAdminId(int adminId) {
 		this.adminId = adminId;
 	}
 

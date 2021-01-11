@@ -1,6 +1,7 @@
 package com.lti.repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
@@ -9,6 +10,7 @@ import com.lti.entities.Admin;
 @Repository
 public class AdminRepositoryImpl implements AdminRepository {
 
+	@PersistenceContext
 	private EntityManager entityManager;
 
 	@Override
