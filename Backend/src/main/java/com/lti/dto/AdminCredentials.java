@@ -2,15 +2,15 @@ package com.lti.dto;
 
 public class AdminCredentials {
 
-	private String userId;
+	private int adminId;
 	private String password;
 
-	public String getUserId() {
-		return userId;
+	public int getAdminId() {
+		return adminId;
 	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setAdminId(int adminId) {
+		this.adminId = adminId;
 	}
 
 	public String getPassword() {

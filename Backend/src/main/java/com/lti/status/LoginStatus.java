@@ -2,14 +2,14 @@ package com.lti.status;
 
 public class LoginStatus extends Status {
 
-	private String userId;
+	private int userId;
 	private String name;
 
-	public String getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 
-	public void setUserId(String userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 

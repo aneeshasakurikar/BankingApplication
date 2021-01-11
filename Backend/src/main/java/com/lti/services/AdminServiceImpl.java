@@ -1,34 +1,36 @@
 package com.lti.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
+import javax.security.auth.login.AccountNotFoundException;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.lti.daos.AdminDAO;
 import com.lti.dto.AdminCredentials;
 import com.lti.entities.Admin;
-import com.lti.exceptions.ServiceException;
-import com.lti.repository.AdminRepository;
 
 public class AdminServiceImpl implements AdminService {
 
 	@Autowired
-	private AdminRepository repo;
+	private AdminDAO dao;
 
 	@Override
-	public Admin adminLogin(AdminCredentials adminCredentials) {
+	public Admin adminLogin(AdminCredentials adminCredentials) throws AccountNotFoundException {
 
 		try {
 //			System.out.println("user "+adminCredentials.getUserId());
 //			System.out.println("value is "+repo.findAdminById(adminCredentials.getUserId()));
-			if (!repo.isAdminAvailable(adminCredentials.getUserId())) {
+			if (!dao.isAdminAvailable(adminCredentials.getAdminId())) {
 //				System.out.println("printing this");
-				throw new ServiceException("User Not Exist");
+				throw new AccountNotFoundException("User Doesn't Exist");
 			}
-			String userId = repo.getAdminByIdAndPassword(adminCredentials.getUserId(), adminCredentials.getPassword());
-			Admin admin = repo.getAdminById(userId);
+			int adminId = dao.getAdminByIdAndPassword(adminCredentials.getAdminId(), adminCredentials.getPassword());
+			Admin admin = dao.getAdminById(adminId);
 //			System.out.println("Admin is service is " +admin);
 			return admin;
-		} catch (EmptyResultDataAccessException e) {
-			throw new ServiceException("Incorrect UserId/Password");
+		} catch (AccountNotFoundException e) {
+			// System.out.println("Incorrect UserId/Password");
+			throw new AccountNotFoundException("Incorrect UserId/Password");
+
 		}
 
 	}
