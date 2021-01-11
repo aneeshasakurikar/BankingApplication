@@ -2,38 +2,37 @@ package com.lti.entities;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="transaction_table")
-@SequenceGenerator(name = "transaction_gen", sequenceName = "transaction_gen",  initialValue = 1000000)
 public class Transaction {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "transaction_gen")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int transactionId;
 	private int payerAccountNumber;
 	private int payeeAccountNumber;
-	private String mode;
+	
+	@Column(length = 5)
+	private String transactionMode;
 	private int amount;
 	private LocalDate dateOfTransaction;
+	
+	@Column(length = 50)
 	private String remarks;
-
-	public String getRemarks() {
-		return remarks;
-	}
-
-	public void setRemarks(String remarks) {
-		this.remarks = remarks;
-	}
 
 	public int getTransactionId() {
 		return transactionId;
+	}
+
+	public void setTransactionId(int transactionId) {
+		this.transactionId = transactionId;
 	}
 
 	public int getPayerAccountNumber() {
@@ -52,12 +51,12 @@ public class Transaction {
 		this.payeeAccountNumber = payeeAccountNumber;
 	}
 
-	public String getMode() {
-		return mode;
+	public String getTransactionMode() {
+		return transactionMode;
 	}
 
-	public void setMode(String mode) {
-		this.mode = mode;
+	public void setTransactionMode(String transactionMode) {
+		this.transactionMode = transactionMode;
 	}
 
 	public int getAmount() {
@@ -74,6 +73,14 @@ public class Transaction {
 
 	public void setDateOfTransaction(LocalDate dateOfTransaction) {
 		this.dateOfTransaction = dateOfTransaction;
+	}
+
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
 	}
 
 }
