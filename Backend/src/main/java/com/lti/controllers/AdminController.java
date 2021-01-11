@@ -21,9 +21,10 @@ public class AdminController {
 	@PostMapping(path = "/loginAdmin")
 	public LoginStatus adminLogin(@RequestBody AdminCredentials adminCredentials) {
 		try {
+			//System.out.println(adminCredentials.getAdminId());
 			Admin admin = adminService.adminLogin(adminCredentials);
 			LoginStatus loginStatus = new LoginStatus();
-			//loginStatus.setName(admin.getAdminId());
+			//loginStatus.setName(admin.get);
 			loginStatus.setUserId(admin.getAdminId());
 			loginStatus.setMessage("Login Successful");
 			loginStatus.setStatus(statusType.SUCCESS);

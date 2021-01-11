@@ -8,7 +8,7 @@ public interface AdminDAO {
 
 	public int getAdminByIdAndPassword(int adminId, String password);
 
-	public boolean isAdminAvailable(int adminId);
+	//public boolean isAdminAvailable(int adminId);
 
 }
 	

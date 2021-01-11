@@ -3,12 +3,12 @@ package com.lti.services;
 
 import java.util.List;
 
+import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lti.daos.UserDetailsDAO;
 import com.lti.entities.UserDetails;
-import com.lti.exceptions.ServiceException;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService{
@@ -34,7 +34,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 				return userDetailsDAO.getUserDetailsByUserId(userId);
 			}
 			catch (NullPointerException e) {
-				throw new ServiceException();
+				throw new ServiceException("");
 			}
 	}
 

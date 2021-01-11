@@ -11,6 +11,12 @@ import { NetbankingRegistrationComponent } from './netbanking-registration/netba
 import { ForgotUserIdComponent } from './forgot-user-id/forgot-user-id.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
+import { FormsModule } from '@angular/forms';
+import { SetNewPasswordComponent } from './set-new-password/set-new-password.component';
+
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,11 +26,17 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     CheckStatusComponent,
     NetbankingRegistrationComponent,
     ForgotUserIdComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+
+    SetNewPasswordComponent,
+
+    AdminLoginComponent
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
