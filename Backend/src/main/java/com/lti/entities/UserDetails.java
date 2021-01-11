@@ -51,6 +51,24 @@ public class UserDetails {
 	@Column(length = 10)
 	private String sourceOfIncome;
 	private String annualIncome;
+	private String status;
+	private String adminRemarks;
+
+	public String getAdminRemarks() {
+		return adminRemarks;
+	}
+
+	public void setAdminRemarks(String adminRemarks) {
+		this.adminRemarks = adminRemarks;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
 	public int getUserId() {
 		return userId;
