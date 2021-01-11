@@ -10,7 +10,7 @@ import com.lti.services.TransactionServiceImpl;
 @RestController
 public class TransactionController {
 
-	@Autowired
+	//@Autowired
 	TransactionServiceImpl transactionServiceImpl; 
 	
 	@PostMapping(path="addTransaction")

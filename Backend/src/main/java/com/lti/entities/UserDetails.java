@@ -7,12 +7,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "user_details_table")
+@NamedQuery(name = "checkIfUserPresent", query = "select count(ud.userId) from UserDetails ud where ud.userId = :userId")
+@NamedQuery(name="getAllUsers", query="from UserDetails") 
+@NamedQuery(name="updateUserStatus", query="update UserDetails set status = :status, adminRemarks = :adminRemarks where userId = :userId ") 
+@NamedQuery(name="checkIfUserApproved", query="select status from UserDetails where userId = :userId") 
 @SequenceGenerator(name = "user_gen", sequenceName = "user_gen", initialValue = 10001)
 public class UserDetails {
 
@@ -45,13 +49,31 @@ public class UserDetails {
 	private String aadharNumber;
 	private LocalDate dateOfBirth;
 
+	@Column(length = 15)
+	private String addressLine1;
+
+	@Column(length = 15)
+	private String addressLine2;
+
+	@Column(length = 15)
+	private String landmark;
+
+	@Column(length = 15)
+	private String state;
+
+	@Column(length = 15)
+	private String city;
+
+	@Column(length = 6)
+	private int pincode;
+	
 	@Column(length = 10)
 	private String occupationType;
 
 	@Column(length = 10)
 	private String sourceOfIncome;
 	private String annualIncome;
-	private String status;
+	private boolean status;
 	private String adminRemarks;
 
 	public String getAdminRemarks() {
@@ -60,14 +82,6 @@ public class UserDetails {
 
 	public void setAdminRemarks(String adminRemarks) {
 		this.adminRemarks = adminRemarks;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
 	}
 
 	public int getUserId() {
@@ -133,7 +147,7 @@ public class UserDetails {
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
-
+	
 	public String getAadharNumber() {
 		return aadharNumber;
 	}
@@ -148,6 +162,58 @@ public class UserDetails {
 
 	public void setDateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
+	}
+	
+	public String getAddressLine1() {
+		return addressLine1;
+	}
+
+	public void setAddressLine1(String addressLine1) {
+		this.addressLine1 = addressLine1;
+	}
+
+	public String getAddressLine2() {
+		return addressLine2;
+	}
+
+	public void setAddressLine2(String addressLine2) {
+		this.addressLine2 = addressLine2;
+	}
+
+	public String getLandmark() {
+		return landmark;
+	}
+
+	public void setLandmark(String landmark) {
+		this.landmark = landmark;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public int getPincode() {
+		return pincode;
+	}
+
+	public void setPincode(int pincode) {
+		this.pincode = pincode;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 
 	public String getOccupationType() {

@@ -9,7 +9,7 @@ import com.lti.services.AccountDetailsServiceImpl;
 @RestController
 public class AccountDetailsController {
 
-	@Autowired
+	//@Autowired
 	AccountDetailsServiceImpl accountDetailsService;
 	
 	@PostMapping(path="/login")

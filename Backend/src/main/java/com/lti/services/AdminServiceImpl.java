@@ -3,11 +3,13 @@ package com.lti.services;
 import javax.security.auth.login.AccountNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.lti.daos.AdminDAO;
 import com.lti.dto.AdminCredentials;
 import com.lti.entities.Admin;
 
+@Service
 public class AdminServiceImpl implements AdminService {
 
 	@Autowired

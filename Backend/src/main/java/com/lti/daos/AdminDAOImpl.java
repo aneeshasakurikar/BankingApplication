@@ -3,8 +3,11 @@ package com.lti.daos;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Repository;
+
 import com.lti.entities.Admin;
 
+@Repository
 public class AdminDAOImpl implements AdminDAO {
 
 	@PersistenceContext

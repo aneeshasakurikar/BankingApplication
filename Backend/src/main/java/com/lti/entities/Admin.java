@@ -16,8 +16,6 @@ public class Admin {
 	private String adminName;
 	private String adminPassword;
 
-	@OneToOne
-	private UserDetails user;
 
 	public Admin() {
 	}

@@ -6,8 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
+import org.springframework.stereotype.Repository;
+
 import com.lti.entities.UserDetails;
 
+@Repository
 public class UserDetailsDAOImpl implements UserDetailsDAO {
 
 	@PersistenceContext
@@ -15,10 +18,9 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 
 	@Override
 	@Transactional
-	public void save(UserDetails user) {
-
-		entityManager.persist(user);
-
+	public UserDetails save(UserDetails userDetails) {
+		UserDetails newUserDetails = entityManager.merge(userDetails);
+		return newUserDetails;
 	}
 
 	@Override
@@ -34,23 +36,22 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 
 	@Override
 	public List<UserDetails> viewAllUsers() {
-		List<UserDetails> allUsers = entityManager.createNamedQuery("getAllAccounts").getResultList();
+		List<UserDetails> allUsers = entityManager.createNamedQuery("getAllUsers").getResultList();
 		return allUsers;
 	}
 
 	@Override
 	@Transactional
-	public void updateUserStatus(int userId, String adminApproval, String adminRemarks) {
+	public void updateUserStatus(int userId, Boolean adminApproval, String adminRemarks) {
 		System.out.println(adminApproval + " " + adminRemarks + " " + userId);
-		entityManager.createNamedQuery("updateUserStatusByAdmin").setParameter("userId", userId)
-				.setParameter("status", adminApproval).setParameter("aminRemarks", adminRemarks).executeUpdate();
+		entityManager.createNamedQuery("updateUserStatus").setParameter("userId", userId)
+				.setParameter("status", adminApproval).setParameter("adminRemarks", adminRemarks).executeUpdate();
 
 	}
 
 	@Override
 	public boolean isUserApproved(int userId) {
-		return (Long) entityManager.createNamedQuery("checkIfUserApproved").setParameter("userId", userId)
-				.getSingleResult() > 0 ? true : false;
+		return (boolean) entityManager.createNamedQuery("checkIfUserApproved").setParameter("userId", userId).getSingleResult();
 	}
 
 }
