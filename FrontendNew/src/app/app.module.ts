@@ -15,15 +15,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SetNewPasswordComponent } from './set-new-password/set-new-password.component';
 
 import { AdminLoginComponent } from './admin-login/admin-login.component';
-<<<<<<< HEAD
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-=======
-import { ServicesService } from './services.service';
-import { HttpClientModule } from '@angular/common/http';
-import { AdminApprovalComponent } from './admin-approval/admin-approval.component';
 
->>>>>>> d7cdf24f809a3acf64b32561f692052e400f4cab
+import { ServicesService } from './services/services.service';
+import { AdminApprovalComponent } from './admin-approval/admin-approval.component';
 
 @NgModule({
   declarations: [
@@ -47,12 +42,9 @@ import { AdminApprovalComponent } from './admin-approval/admin-approval.componen
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-<<<<<<< HEAD
-    HttpClientModule
-=======
     HttpClientModule,
     ReactiveFormsModule
->>>>>>> d7cdf24f809a3acf64b32561f692052e400f4cab
+
   ],
   providers: [],
   bootstrap: [AppComponent]

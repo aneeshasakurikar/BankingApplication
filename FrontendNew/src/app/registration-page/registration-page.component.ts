@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
-import { UserDetails } from '../models';
-import { ServicesService } from '../services.service';
+import { UserDetails } from '../models/models';
+import { ServicesService } from '../services/services.service';
 
 @Component({
   selector: 'app-registration-page',
