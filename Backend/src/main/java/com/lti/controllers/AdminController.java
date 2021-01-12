@@ -3,6 +3,7 @@ package com.lti.controllers;
 import javax.security.auth.login.AccountNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,7 @@ import com.lti.status.LoginStatus;
 import com.lti.status.Status.statusType;
 
 @RestController
+@CrossOrigin
 public class AdminController {
 
 	@Autowired
