@@ -10,9 +10,20 @@ import { CheckStatusComponent } from './check-status/check-status.component';
 import { NetbankingRegistrationComponent } from './netbanking-registration/netbanking-registration.component';
 import { ForgotUserIdComponent } from './forgot-user-id/forgot-user-id.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SetNewPasswordComponent } from './set-new-password/set-new-password.component';
+
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+<<<<<<< HEAD
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+=======
+import { ServicesService } from './services.service';
+import { HttpClientModule } from '@angular/common/http';
+import { AdminApprovalComponent } from './admin-approval/admin-approval.component';
+
+>>>>>>> d7cdf24f809a3acf64b32561f692052e400f4cab
 
 @NgModule({
   declarations: [
@@ -24,13 +35,24 @@ import { HttpClientModule } from '@angular/common/http';
     NetbankingRegistrationComponent,
     ForgotUserIdComponent,
     ForgotPasswordComponent,
-    AdminLoginComponent
+
+    SetNewPasswordComponent,
+
+    AdminLoginComponent,
+
+    AdminApprovalComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+<<<<<<< HEAD
     HttpClientModule
+=======
+    HttpClientModule,
+    ReactiveFormsModule
+>>>>>>> d7cdf24f809a3acf64b32561f692052e400f4cab
   ],
   providers: [],
   bootstrap: [AppComponent]
