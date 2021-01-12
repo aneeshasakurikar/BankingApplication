@@ -6,7 +6,7 @@ import { SetNewPasswordComponent } from './set-new-password/set-new-password.com
 
 const routes: Routes = [
   // {path:'set-pass',component:SetNewPasswordComponent}
-  {path:'', component:RegistrationPageComponent}
+  // {path:'', component:RegistrationPageComponent}
 ];
 
 @NgModule({
