@@ -8,7 +8,7 @@ public interface UserDetailsDAO{
 
 	UserDetails save(UserDetails user);
 	UserDetails getUserDetailsByUserId(int userId);
-	boolean isUserPresent(int userId);
+	boolean isUserPresent(String aadharNumber);
 	List<UserDetails> viewAllUsers();
 	void updateUserStatus(int userId, Boolean adminApproval, String adminRemarks);
 	boolean isUserApproved(int userId);

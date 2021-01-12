@@ -1,20 +1,28 @@
 package com.lti.controllers;
 
+import java.util.List;
+
 import org.hibernate.service.spi.ServiceException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lti.dto.CreateUserStatus;
 import com.lti.dto.RegisterStatus;
 import com.lti.dto.Status.StatusType;
 import com.lti.entities.UserDetails;
 import com.lti.services.UserDetailsServiceImpl;
+import com.lti.status.Status;
 
+@CrossOrigin(origins =  "http://localhost:4200")
 @RestController
 public class UserDetailsController {
 
-	// @Autowired
+	@Autowired
 	UserDetailsServiceImpl userDetailsService;
 
 	@PostMapping(path = "/register")
@@ -43,5 +51,12 @@ public class UserDetailsController {
 		 * "state":"mp", "status":1, "title":"ms"}
 		 */
 
+	}
+	
+	//@CrossOrigin(origins =  "http://localhost:4200")
+	@GetMapping(path="/viewAllUnapprovedUsers")
+	public List<UserDetails> adminApproval() 
+	{
+		return userDetailsService.getAllUsers();
 	}
 }

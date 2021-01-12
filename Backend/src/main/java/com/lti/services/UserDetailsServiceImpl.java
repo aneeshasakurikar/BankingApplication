@@ -18,7 +18,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 	
 	@Override
 	public int registerUser(UserDetails userDetails) {
-		if(userDetailsDAO.isUserPresent(userDetails.getUserId())) {
+		if(userDetailsDAO.isUserPresent(userDetails.getAadharNumber())) {
 			throw new ServiceException("User already registered!");
 		}
 		else {
@@ -45,7 +45,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 
 	@Override
 	public void updateUserStatus(int userId) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

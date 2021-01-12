@@ -29,14 +29,14 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 	}
 
 	@Override
-	public boolean isUserPresent(int userId) {
-		return (Long) entityManager.createNamedQuery("checkIfUserPresent").setParameter("userId", userId)
+	public boolean isUserPresent(String aadharNumber) {
+		return (Long) entityManager.createNamedQuery("checkIfUserPresent").setParameter("aadharNumber", aadharNumber)
 				.getSingleResult() == 1 ? true : false;
 	}
 
 	@Override
 	public List<UserDetails> viewAllUsers() {
-		List<UserDetails> allUsers = entityManager.createNamedQuery("getAllUsers").getResultList();
+		List<UserDetails> allUsers = entityManager.createNamedQuery("getAllUnapprovedUsers").getResultList();
 		return allUsers;
 	}
 

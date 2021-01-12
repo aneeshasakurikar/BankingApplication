@@ -13,8 +13,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user_details_table")
-@NamedQuery(name = "checkIfUserPresent", query = "select count(ud.userId) from UserDetails ud where ud.userId = :userId")
-@NamedQuery(name="getAllUsers", query="from UserDetails") 
+@NamedQuery(name = "checkIfUserPresent", query = "select count(ud.aadharNumber) from UserDetails ud where ud.aadharNumber = :aadharNumber")
+@NamedQuery(name="getAllUnapprovedUsers", query="from UserDetails ud where ud.status=0") 
 @NamedQuery(name="updateUserStatus", query="update UserDetails set status = :status, adminRemarks = :adminRemarks where userId = :userId ") 
 @NamedQuery(name="checkIfUserApproved", query="select status from UserDetails where userId = :userId") 
 @SequenceGenerator(name = "user_gen", sequenceName = "user_gen", initialValue = 10001)
