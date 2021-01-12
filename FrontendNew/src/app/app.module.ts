@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ServicesService } from './services/services.service';
 import { AdminApprovalComponent } from './admin-approval/admin-approval.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,9 @@ import { AdminApprovalComponent } from './admin-approval/admin-approval.componen
 
     AdminLoginComponent,
 
-    AdminApprovalComponent
+    AdminApprovalComponent,
+
+    UserDashboardComponent
 
   ],
   imports: [
