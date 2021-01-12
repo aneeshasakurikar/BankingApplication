@@ -1,5 +1,16 @@
 package com.lti.daos;
 
-public interface UserDetailsDAO {
+import java.util.List;
 
+import com.lti.entities.UserDetails;
+
+public interface UserDetailsDAO{
+
+	UserDetails save(UserDetails user);
+	UserDetails getUserDetailsByUserId(int userId);
+	boolean isUserPresent(String aadharNumber);
+	List<UserDetails> viewAllUsers();
+	void updateUserStatus(int userId, Boolean adminApproval, String adminRemarks);
+	boolean isUserApproved(int userId);
+	
 }

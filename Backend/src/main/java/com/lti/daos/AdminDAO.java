@@ -11,3 +11,4 @@ public interface AdminDAO {
 	//public boolean isAdminAvailable(int adminId);
 
 }
+	

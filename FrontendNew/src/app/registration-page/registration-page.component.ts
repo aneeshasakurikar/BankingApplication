@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+
+import { UserDetails } from '../models/models';
+import { ServicesService } from '../services/services.service';
 
 @Component({
   selector: 'app-registration-page',
@@ -7,7 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrationPageComponent implements OnInit {
 
-  constructor() { }
+  user: UserDetails = new UserDetails();
+  loginForm: FormGroup;
+  constructor(private service: ServicesService) { }
+
+  register() {
+    this.service.register(this.user).subscribe(response => {
+      alert(JSON.stringify(response));
+    })
+  }
 
   ngOnInit() {
   }

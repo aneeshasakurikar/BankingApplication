@@ -1,0 +1,56 @@
+<div >
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+            <th scope="col"> User ID</th>
+            <th style="margin: auto;" scope="col">Title</th>
+            <th style="margin: auto; border-collapse: collapse;" scope="col">First Name</th>
+            <th scope="col">Middle Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Mobile Number</th>
+            <th scope="col">Email Address</th>
+            <th scope="col">Father's Name</th>
+            <th scope="col">Aadhar Number</th>
+            <th scope="col"> Date Of Birth</th>
+            <th scope="col"> Address Line1</th>
+            <th scope="col"> Address Line2</th>
+            <th scope="col"> Landmark</th>
+            <th scope="col"> City</th>
+            <th scope="col"> State</th>
+            <th scope="col"> Pincode</th>
+            <th scope="col"> Approved By admin</th>
+            <th scope="col">Admin Remark</th>
+            <th scope="col">Submit Details</th>
+        </tr>
+      </thead>
+     <tbody>
+      <tr *ngFor="let user of users; let i=index; let num of array">
+        <td><span>{{user.userId}}</span></td>
+        <td><span>{{user.title}}</span></td>
+        <td><span>{{user.firstName}}</span></td>
+        <td><span>{{user.middleName}}</span></td>
+        <td><span>{{user.lastName}}</span></td>
+        <td><span>{{user.mobileNumber}}</span></td>
+        <td><span>{{user.emailId}}</span></td>
+        <td><span>{{user.fatherName}}</span></td>
+        <td><span>{{user.aadharNumber}}</span></td>
+        <td><span>{{user.dateOfBirth}}</span></td>
+        <td><span>{{user.addressLine1}}</span></td>
+        <td><span>{{user.addressLine2}}</span></td>
+        <td><span>{{user.landmark}}</span></td>
+        <td><span>{{user.city}}</span></td>
+        <td><span>{{user.state}}</span></td>
+        <td><span>{{user.pincode}}</span></td>
+        <td><span>
+            <select id=i name="approvedByAdmin"  >
+                <option value="Approved" >Approved</option>
+                <option value="Decline" >Decline</option>
+            </select>
+        </span></td>
+        <td><span><input type="text" id="remarks" name="remarks" ></span></td>
+          <button class="btn btn-dark" type="button"  style="margin-bottom: 20px; width: 100px;">Submit</button><br>
+      </tr>
+      </tbody> 
+    </table>
+    <br><br><br>
+</div>

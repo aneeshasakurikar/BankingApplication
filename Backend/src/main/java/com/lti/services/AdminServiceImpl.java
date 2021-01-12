@@ -34,8 +34,6 @@ public class AdminServiceImpl implements AdminService {
 			throw new AccountNotFoundException("Incorrect UserId/Password");
 			
 
-		}	
-
+		}
 	}
-
 }
