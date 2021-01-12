@@ -1,65 +1,71 @@
 <div class="container">
-<form (ngSubmit)="register()">  
-  
-    <div class=lable >
-        <label >Title<span style="color:red" >*</span></label>
-        <select [(ngModel)] = "user.title" name="title" id="title">
-            <option value="Mr.">Mr.</option>
-            <option value="Mrs.">Mrs.</option>
-            <option value="Miss.">Miss.</option>
-        </select>
-        <br>
-        <br>
-    
-        <label for="firstName">First Name<span style="color:red" >*</span></label>
-        <input type="text" name="firstname" size="20" id="firstName" [(ngModel)] = "user.firstName"/> <br> <br>
-        <label>Last Name<span style="color:red" >*</span></label>
-        <input type="text" name="lastname" size="20" id="lastName" [(ngModel)] = "user.lastName"/> <br> <br>
-        <label>Middle Name</label>
-        <input type="text" name="middlename" size="20" id="middleName" [(ngModel)] = "user.middleName"/> <br> <br>
-        <label>Father's Name<span style="color:red" >*</span></label>
-        <input type="text" name="fathername" size="20" [(ngModel)] = "user.fatherName"/> <br> <br>
-        <label>Mobile Number<span style="color:red" >*</span></label>
-        <input type="text" name="mobilenumber" size="10" [(ngModel)] = "user.mobileNumber"/> <br> <br>
-        <label>Email ID<span style="color:red" >*</span></label>
-        <input type="text" name="EmailID" size="20" [(ngModel)] = "user.emailId"/> <br> <br>
-        <label>Aadhar Card Number<span style="color:red" >*</span></label>
-        <input type="text" name="AadharCardNumber" size="12" [(ngModel)] = "user.aadharNumber"/> <br> <br>
-        <label>Date of Birth<span style="color:red" >*</span></label>
-        <input type="date" name="dob" size="20" [(ngModel)] = "user.dateOfBirth"/> <br> <br>
-        
-        <h4>Residential Address</h4>
-        <label>a) Address Line 1:</label>
-        <input type="text" name="add1" size="20" [(ngModel)] = "user.addressLine1"/> <br> <br>
-        <label>b) Address Line 2:</label>
-        <input type="text" name="add2" size="20" [(ngModel)] = "user.addressLine1"/> <br> <br>
-        <label>c) Landmark </label>
-        <input type="text" name="landmark" size="20" [(ngModel)] = "user.landmark"/> <br> <br>
-        <label>d) State</label>
-        <input type="text" name="state" size="20" [(ngModel)] = "user.state"/> <br> <br>
-        <label>e) City</label>
-        <input type="text" name="city" size="20" [(ngModel)] = "user.city"/> <br> <br>
-        <label>f) Pincode</label>
-        <input type="text" name="pincode" size="6" [(ngModel)] = "user.pincode"/> <br> <br>
-    
-        <label>a) Occupation Type</label>
-        <input type="text" name="occupation" size="20" [(ngModel)] = "user.occupationType"/> <br> <br>
-        <label>b)Source Of Income</label>
-        <input type="text" name="incomesource" size="20" [(ngModel)] = "user.sourceOfIncome"/> <br> <br>
-        <label>c)Gross Annual Income</label>
-        <select [(ngModel)] = "annualIncome" name="annualIncome">
-            <option value="Gross Annual Income">Gross Annual Income</option>
-            <option value=">100000"><100000</option>
-            <option value="100000-500000">100000-500000</option>
-            <option value="Above 500000">500000-1000000</option>
-            <option value="Above 1000000">Above 1000000</option>
-        </select>
-        <br><br>
-    
-        <input type="submit" value="submit"> 
-    </div>
-    </form>  
+    <form (ngSubmit)="register()">
+
+        <div class=lable>
+            <label for="title"> Title <span style="color:red">*</span></label><br>
+            <select [(ngModel)]="user.title" name="title" id="title">
+                <option value="Mr.">Mr.</option>
+                <option value="Mrs.">Mrs.</option>
+                <option value="Miss.">Miss.</option>
+            </select>
+            <br>
+            <br>
+
+            <label for="firstName">First Name<span style="color:red">*</span></label>
+            <input type="text" name="firstname" size="20" id="firstName" [(ngModel)]="user.firstName" /> <br> <br>
+            <label>Last Name<span style="color:red">*</span></label>
+            <input type="text" name="lastname" size="20" id="lastName" [(ngModel)]="user.lastName" /> <br> <br>
+            <label>Middle Name</label>
+            <input type="text" name="middlename" size="20" id="middleName" [(ngModel)]="user.middleName" /> <br> <br>
+            <label>Father's Name<span style="color:red">*</span></label>
+            <input type="text" name="fathername" size="20" [(ngModel)]="user.fatherName" /> <br> <br>
+            <label>Mobile Number<span style="color:red">*</span></label>
+            <input type="text" name="mobilenumber" size="10" [(ngModel)]="user.mobileNumber" /> <br> <br>
+            <label>Email ID<span style="color:red">*</span></label>
+            <input type="text" name="EmailID" size="20" [(ngModel)]="user.emailId" /> <br> <br>
+            <label>Aadhar Card Number<span style="color:red">*</span></label>
+            <input type="text" name="AadharCardNumber" size="12" [(ngModel)]="user.aadharNumber" /> <br> <br>
+            <label>Date of Birth<span style="color:red">*</span></label><br>
+            <input type="date" name="dob" size="20" [(ngModel)]="user.dateOfBirth" /> <br> <br>
+
+            <label>Address Line 1<span style="color:red">*</span></label>
+            <input type="text" name="add1" size="20" [(ngModel)]="user.addressLine1" /> <br> <br>
+            <label>Address Line 2<span style="color:red">*</span></label>
+            <input type="text" name="add2" size="20" [(ngModel)]="user.addressLine1" /> <br> <br>
+            <label>Landmark </label>
+            <input type="text" name="landmark" size="20" [(ngModel)]="user.landmark" /> <br> <br>
+            <label>State<span style="color:red">*</span></label>
+            <input type="text" name="state" size="20" [(ngModel)]="user.state" /> <br> <br>
+            <label>City<span style="color:red">*</span></label>
+            <input type="text" name="city" size="20" [(ngModel)]="user.city" /> <br> <br>
+            <label>Pincode<span style="color:red">*</span></label>
+            <input type="text" name="pincode" size="6" [(ngModel)]="user.pincode" /> <br> <br>
+
+            <label>Occupation Type<span style="color:red">*</span></label>
+            <input type="text" name="occupation" size="20" [(ngModel)]="user.occupationType" /> <br> <br>
+            <label>Source Of Income<span style="color:red">*</span></label>
+            <input type="text" name="incomesource" size="20" [(ngModel)]="user.sourceOfIncome" /> <br> <br>
+            <label>Gross Annual Income<span style="color:red">*</span></label><br>
+            <select [(ngModel)]="annualIncome" name="annualIncome">
+                <option value="Gross Annual Income">Gross Annual Income</option>
+                <option value=">100000">
+                    <100000< /option>
+                <option value="100000-500000">100000-500000</option>
+                <option value="Above 500000">500000-1000000</option>
+                <option value="Above 1000000">Above 1000000</option>
+            </select>
+            <br><br>
+
+        </div>
+        <div class="registerbtn">
+            <input type="submit" value="Register"
+                style="color:white;background-color:#1e4f8a;font-size:25px;padding:5px;">
+        </div>
+    </form>
 
 </div>
 
+</body>
+
+</html>
 <app-admin-approval></app-admin-approval>
