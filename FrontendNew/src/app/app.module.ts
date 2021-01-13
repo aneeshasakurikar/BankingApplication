@@ -10,6 +10,7 @@ import { CheckStatusComponent } from './check-status/check-status.component';
 import { NetbankingRegistrationComponent } from './netbanking-registration/netbanking-registration.component';
 import { ForgotUserIdComponent } from './forgot-user-id/forgot-user-id.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     CheckStatusComponent,
     NetbankingRegistrationComponent,
     ForgotUserIdComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
