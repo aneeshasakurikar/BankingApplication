@@ -1,0 +1,13 @@
+#btn-div {
+    float:right;
+    margin-top:15px;
+    margin-right: 70px;
+}
+
+#logoutBtn {
+    background-color: #1e4f8a;
+    color:white;
+    width:90px;
+    height: 40px;
+    font-size: 15px;
+}

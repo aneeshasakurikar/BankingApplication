@@ -10,6 +10,7 @@ import { CheckStatusComponent } from './check-status/check-status.component';
 import { NetbankingRegistrationComponent } from './netbanking-registration/netbanking-registration.component';
 import { ForgotUserIdComponent } from './forgot-user-id/forgot-user-id.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { LogoutComponent } from './logout/logout.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SetNewPasswordComponent } from './set-new-password/set-new-password.component';
@@ -19,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ServicesService } from './services/services.service';
 import { AdminApprovalComponent } from './admin-approval/admin-approval.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -31,11 +33,15 @@ import { AdminApprovalComponent } from './admin-approval/admin-approval.componen
     ForgotUserIdComponent,
     ForgotPasswordComponent,
 
+    LogoutComponent,
+
     SetNewPasswordComponent,
 
     AdminLoginComponent,
 
-    AdminApprovalComponent
+    AdminApprovalComponent,
+
+    UserDashboardComponent
 
   ],
   imports: [

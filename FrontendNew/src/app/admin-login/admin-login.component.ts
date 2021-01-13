@@ -1,3 +1,4 @@
+import { LocationStrategy } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Login } from '../models/adminlogin';
@@ -13,9 +14,16 @@ export class AdminLoginComponent implements OnInit {
 login: Login = new Login();
 message:String;
 
-  constructor(private loginService: LoginService, private router:Router) { }
+  constructor(private loginService: LoginService, private router:Router) {
+
+   }
 
   ngOnInit() {
+  }
+
+  adminApproval():void{
+    const navigationDetails: string[] = ['/adminApproval'];
+    this.router.navigate(navigationDetails);
   }
 
   loginCheck(){
