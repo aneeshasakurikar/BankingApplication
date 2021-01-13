@@ -48,7 +48,7 @@ hr {
   margin-bottom: 25px;  
 }  
 .registerbtn {  
-  background-color: #1e4f8a;  
+  
   color: #1e4f8a;  
   margin-top:20px;
   margin-left: 240px ; 
@@ -56,7 +56,7 @@ hr {
   font-size:60px;
   cursor: pointer;  
   width: 10%;  
-  opacity: 0.9; 
+  opacity: 1; 
     
 }  
 .registerbtn:hover {  
