@@ -48,5 +48,11 @@ public class AccountDetailsDAOImpl implements AccountDetailsDAO {
 		System.out.println("merged");
 	}
 
+	@Override
+	public boolean userExsit(int beneficiaryAccountnumber) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 	
 }

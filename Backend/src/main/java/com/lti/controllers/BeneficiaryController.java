@@ -8,10 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.dto.BeneficiaryDTO;
-import com.lti.dto.Status.StatusType;
 import com.lti.services.BeneficiaryServiceImpl;
 import com.lti.status.Status;
-import com.lti.status.Status.statusType;
+import com.lti.status.Status.StatusType;
 
 @RestController
 public class BeneficiaryController {
@@ -25,14 +24,14 @@ public class BeneficiaryController {
 			beneficiaryService.save(beneficiaryDTO);
 			Status status = new Status();
 			status.setMessage("Beneficiary Added");
-			status.setStatus(statusType.SUCCESS);
+			status.setStatus(StatusType.SUCCESS);
 			return status;
 		}
 		catch(ServiceException e) 
 		{
 			Status status = new Status();
 			status.setMessage(e.getMessage());
-			status.setStatus(statusType.FAILURE);
+			status.setStatus(StatusType.FAILED);
 			return status;
 		}
 		
