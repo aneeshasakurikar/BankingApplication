@@ -2,25 +2,34 @@
 
 <head>
     <title>Home Page</title>
+    <script type = "text/javascript" >  
+        function preventBack() { window.history.forward(); }  
+        setTimeout("preventBack()", 0);  
+        window.onunload = function () { null };  
+    </script> 
 </head>
 
 <body>
     <div id="container">
-        <div id="image">
-            <img src="lti_bank.jpg">
-        </div>
-        <!-- <div id="sc"> -->
-            <div id="user" align="right">New User?<br><br>
-                <button type="submit">Register</button><br>
-                <button type="submit">Check Status</button>
 
-            </div><br>
-            <div id="customer" align="right">Existing Customer?<br><br>
-                <button type="submit">Login</button><br>
-                <button type="submit">Register For Net Banking</button>
+        <div id="admin">
+            <p>Admin Area</p><br>
+            <button type="submit" style="margin-left:90px;font-size:20px;" (click)="openAdmin()">Admin Login</button>
+        </div>
+
+        <div id="home">
+            <div id="user">New User?<br><br>
+                <button (click)="register()">Register</button><br><br>
+                <button (click)="checkStatus()">Check Status</button>
 
             </div>
-        <!-- </div> -->
+            <br>
+            <div id="customer">Existing Customer?<br><br>
+                <button (click)="userLogin()">Login</button><br><br>
+                <button (click)="netBanking()">Register For Net Banking</button>
+
+            </div>
+        </div>
     </div>
 </body>
 

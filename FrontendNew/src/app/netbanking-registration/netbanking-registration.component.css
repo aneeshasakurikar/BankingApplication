@@ -8,12 +8,12 @@
     
     #login-box {
         
-        width:500px;
-        height: 510px;
+        width:700px;
+        height: 700px;
         padding: 60px 76px 0px 100px;
         color: #ebebeb;
         font: 20px Arial, Helvetica, sans-serif;
-        margin-left:150px;
+        margin-left:80px;
         border: black;
         border-width:6px;
         border-style:solid;

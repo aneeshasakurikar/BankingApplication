@@ -1,0 +1,36 @@
+#head-div {
+    width:1400px;
+    height: 100px;
+    background-color: #1e4f8a;
+    margin-top: 40px;
+    margin-left: 50px;
+    margin-right: 50px;
+    border: black;
+        border-width:3px;
+        border-style:solid;
+}
+#head-text {
+    font-style: bold;
+    font: Arial, Helvetica, sans-serif;
+    text-align: center;
+	color:white;
+}
+
+#foots {
+	display:inline-flex;
+    width:1400px;
+    height: 105px;
+    background-color: #1e4f8a;
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-bottom:20px;
+    margin-right: 50px;
+    border: black;
+        border-width:3px;
+        border-style:solid;
+}
+
+#logo {
+	margin:10px;
+	
+}

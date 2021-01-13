@@ -1,4 +1,7 @@
+import { LocationStrategy } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AdminLoginComponent } from '../admin-login/admin-login.component';
 
 @Component({
   selector: 'app-home-page',
@@ -7,9 +10,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router, private location: LocationStrategy) { 
+    history.pushState(null, null, window.location.href);  
+this.location.onPopState(() => {
+  history.pushState(null, null, window.location.href);
+});
+  }
 
   ngOnInit() {
+  }
+
+  openAdmin():void{
+    const navigationDetails: string[] = ['/adminLogin'];
+     this.router.navigate(navigationDetails);
+  }
+
+  register():void{
+    const navigationDetails: string[] = ['/register'];
+     this.router.navigate(navigationDetails);
+  }
+
+  checkStatus():void {
+    const navigationDetails: string[] = ['/checkStatus'];
+     this.router.navigate(navigationDetails);
+  }
+
+  userLogin():void{
+    const navigationDetails: string[] = ['/userLogin'];
+    this.router.navigate(navigationDetails);
+  }
+
+  netBanking():void{
+    const navigationDetails: string[] = ['/netBankRegister'];
+    this.router.navigate(navigationDetails);
   }
 
 }

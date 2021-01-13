@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from '../services/services.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { LocationStrategy } from '@angular/common';
 
 @Component({
   selector: 'app-admin-approval',
@@ -11,10 +13,21 @@ export class AdminApprovalComponent implements OnInit {
 
   userList: Object[];
   public users;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private router:Router, private location: LocationStrategy) { 
+
+    history.pushState(null, null, window.location.href);  
+this.location.onPopState(() => {
+  history.pushState(null, null, window.location.href);
+});
+  }
 
   approve(){
 
+  }
+
+  adminLogout():void{
+    const navigationDetails: string[] = ['/adminLogout'];
+    this.router.navigate(navigationDetails);
   }
 
   ngOnInit() {

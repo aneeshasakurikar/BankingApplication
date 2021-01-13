@@ -1,6 +1,6 @@
 <div class="container">
     <form (ngSubmit)="register()">
-
+          <h3 style="color:#1e4f8a;margin-left:100px;">Please fill the below Registration form   </h3>
         <div class=lable>
             <label for="title"> Title <span style="color:red">*</span></label><br>
             <select [(ngModel)]="user.title" name="title" id="title">
@@ -59,11 +59,8 @@
         </div>
         <div class="registerbtn">
             <input type="submit" value="Register"
-                style="color:white;background-color:#1e4f8a;font-size:25px;padding:5px;">
+                style="color:white;background-color:#1e4f8a;font-size:25px;padding:5px;margin-left:200px;">
         </div>
     </form>
 
 </div>
-
-
-<app-admin-approval></app-admin-approval>

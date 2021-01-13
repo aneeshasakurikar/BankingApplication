@@ -8,7 +8,7 @@
 
 <body>
     <form (ngSubmit)="loginCheck()">
-        <div style="padding: 100px 0 0 250px;">
+        <div style="padding: 100px 0 0 250px;margin-left: 100px;">
             <div id="login-box">
 
                 <h2 align="center">Admin Login</h2>
@@ -17,7 +17,8 @@
                 <br />
                 <div id="login-box-name" style="margin-top:20px;">Admin Id:</div>
                 <div id="login-box-field" style="margin-top:20px;">
-                    <input name="q" type="number" class="form-login" title="Username" value="" size="30" maxlength="2048" [(ngModel)]=login.adminId/>
+                    <input name="q" type="number" class="form-login" title="Username" value="" size="30"
+                        maxlength="2048" [(ngModel)]=login.adminId />
                 </div>
                 <div id="login-box-name">Password:</div>
                 <div id="login-box-field">
@@ -28,7 +29,7 @@
                 <br />
                 <br />
                 <div align="center">
-                    <button id="login-button" type="submit" value="LogIn">Log In</button>
+                    <button id="login-button" type="submit" value="LogIn" (click)="adminApproval()">Log In</button>
                 </div>
             </div>
 
