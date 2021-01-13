@@ -1,0 +1,63 @@
+#container{
+    width:900px;
+    height: 540px;
+    padding: 60px 76px 0px 100px;
+    /* color: #ebebeb; */
+    font: 20px Arial, Helvetica, sans-serif;
+    margin-left:120px;
+    border: black;
+    border-width:6px;
+    border-style:solid;
+    display: inline-table;
+}
+#image{
+    width: 350px;
+    height: 400px;
+    border: black;
+    border-width:6px;
+    border-style:solid;
+
+}
+
+
+#user{
+    width: 250px;
+    height: 160px;
+    text-align: center;
+    margin-left:400px;
+    margin-right: 100px;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    border: black;
+    border-width:6px;
+    border-style:solid;
+    float: right;
+    padding: 30px 40px 20px 10px; 
+     
+
+}
+#reg-sta{
+    border: black;
+    border-width:4px;
+    border-style:solid;
+   
+}
+#customer{
+    width: 250px;
+    height: 160px;
+    text-align: center;
+    margin-left:400px;
+    margin-top: 10px;
+    border: black;
+    border-width:6px;
+    border-style:solid;
+    float: right;
+    padding: 30px 40px 0 10px;
+
+}
+#log-net{
+   
+    border: black;
+    border-width:4px;
+    border-style:solid;
+}

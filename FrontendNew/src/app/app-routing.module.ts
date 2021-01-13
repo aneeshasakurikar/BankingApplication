@@ -11,10 +11,18 @@ import { SetNewPasswordComponent } from './set-new-password/set-new-password.com
 
 const routes: Routes = [
   // {path:'set-pass',component:SetNewPasswordComponent}
+
   {path:'', component:LoginPageComponent},
+
+
+  // {path:'', component:RegistrationPageComponent}
+
+  {path:'', component:AppComponent},
+
   { path:'register', component:RegistrationPageComponent },
   { path:'forgotId',component:ForgotUserIdComponent},
   { path:'forgotPass',component:ForgotPasswordComponent}
+
 
 ];
 
