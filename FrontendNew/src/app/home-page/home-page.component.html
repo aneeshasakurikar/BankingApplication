@@ -1,29 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        h1{text-align: center;}
-        h2{text-align: right;}
-    </style>
+    <title>Home Page</title>
 </head>
 
 <body>
-    <div id="header">
-        <h1>Online Banking System<span class="style1"></span></h1>
-        <h1>LTI Banking Services<span class="style1"></span></h1>
-    </div>
+    <div id="container">
+        <div id="image">
+            <img src="lti_bank.jpg">
+        </div>
+        <!-- <div id="sc"> -->
+            <div id="user" align="right">New User?<br><br>
+                <button type="submit">Register</button><br>
+                <button type="submit">Check Status</button>
 
-    <div id="navigation"> 
-        <h2>NEW USER?</h2>
-       <p style="text-align: right;"> <a routerLink="registration-page.html">  <button type="button" class="btn btn-lg btn-block btn-secondary">Register</button></a></p><br>
-       <p style="text-align: right;"> <a routerLink="check-status.html" >  <button type="button" class="btn btn-lg btn-block btn-secondary">Check Status</button></a></p><br>
-        <h2>Existing Customer?</h2>
-        <p style="text-align: right;"> <a routerLink="login-page.html" >  <button type="button" class="btn btn-lg btn-block btn-secondary">Login</button></a></p><br>
-        <p style="text-align: right;"> <a routerLink="registration-page.html" >  <button type="button" class="btn btn-lg btn-block btn-secondary">Registration For Online Banking</button></a></p><br>
-        <p style="text-align: center;"></p><a routerLink="contactus.html" class="badge badge-warning">Contact Customer Care</a>
+            </div><br>
+            <div id="customer" align="right">Existing Customer?<br><br>
+                <button type="submit">Login</button><br>
+                <button type="submit">Register For Net Banking</button>
+
+            </div>
+        <!-- </div> -->
     </div>
 </body>
+
 </html>
+

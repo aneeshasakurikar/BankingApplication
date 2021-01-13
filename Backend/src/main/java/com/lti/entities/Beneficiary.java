@@ -1,19 +1,34 @@
 package com.lti.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "beneficiary_table")
 public class Beneficiary {
-	
+
 	@Id
 	@GeneratedValue
 	private int beneficiaryId;
 	private int beneficiaryAccountNumber;
+	private int userAccountNumber;
+
+	@Column(length = 25)
 	private String beneficiaryName;
+	
+	@Column(length = 10)
 	private String beneficiaryNickName;
-	private String userAccountNumber;
+
+	public int getBeneficiaryId() {
+		return beneficiaryId;
+	}
+
+	public void setBeneficiaryId(int beneficiaryId) {
+		this.beneficiaryId = beneficiaryId;
+	}
 
 	public int getBeneficiaryAccountNumber() {
 		return beneficiaryAccountNumber;
@@ -23,8 +38,12 @@ public class Beneficiary {
 		this.beneficiaryAccountNumber = beneficiaryAccountNumber;
 	}
 
-	public int getBeneficiaryId() {
-		return beneficiaryId;
+	public int getUserAccountNumber() {
+		return userAccountNumber;
+	}
+
+	public void setUserAccountNumber(int userAccountNumber) {
+		this.userAccountNumber = userAccountNumber;
 	}
 
 	public String getBeneficiaryName() {
@@ -41,14 +60,6 @@ public class Beneficiary {
 
 	public void setBeneficiaryNickName(String beneficiaryNickName) {
 		this.beneficiaryNickName = beneficiaryNickName;
-	}
-
-	public String getUserAccountNumber() {
-		return userAccountNumber;
-	}
-
-	public void setUserAccountNumber(String userAccountNumber) {
-		this.userAccountNumber = userAccountNumber;
 	}
 
 }
