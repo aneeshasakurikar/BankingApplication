@@ -22,6 +22,7 @@ const routes: Routes = [
 
   // {path:'', component:RegistrationPageComponent}
 
+
   //{path:'', component:AppComponent},
   {  path:'adminLogin', component:AdminLoginComponent},
   {  path:'adminLogout', component:HomePageComponent},
@@ -33,6 +34,11 @@ const routes: Routes = [
   { path:'forgotId',component:ForgotUserIdComponent},
   { path:'forgotPass',component:ForgotPasswordComponent},
   { path:'checkStatus', component:CheckStatusComponent}
+
+  // {path:'', component:AppComponent},
+  // { path:'register', component:RegistrationPageComponent },
+  // { path:'forgotId',component:ForgotUserIdComponent},
+  // { path:'forgotPass',component:ForgotPasswordCompo 
 
 ];
 

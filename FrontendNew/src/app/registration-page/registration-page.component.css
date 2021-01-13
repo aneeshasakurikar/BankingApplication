@@ -47,7 +47,22 @@ hr {
   border: 1px solid #f1f1f1;  
   margin-bottom: 25px;  
 }  
+<<<<<<< HEAD
 
+=======
+.registerbtn {  
+  
+  color: #1e4f8a;  
+  margin-top:20px;
+  margin-left: 240px ; 
+  margin-bottom:100px;  
+  font-size:60px;
+  cursor: pointer;  
+  width: 10%;  
+  opacity: 1; 
+    
+}  
+>>>>>>> 065e456b40afb4c618c54009ebca48eeb79c87d0
 .registerbtn:hover {  
   opacity: 1;  
 }  

@@ -1,3 +1,4 @@
+
 <div class="container">
     <form (ngSubmit)="register()">
           <h3 style="color:#1e4f8a;margin-left:100px;">Please fill the below Registration form   </h3>
@@ -12,34 +13,39 @@
             <br>
 
             <label for="firstName">First Name<span style="color:red">*</span></label>
-            <input type="text" name="firstname" size="20" id="firstName" [(ngModel)]="user.firstName" /> <br> <br>
+            <input type="text" maxlength="25" required  pattern="[a-zA-Z][a-zA-z]+" name="firstname" size="20" id="firstName" [(ngModel)]="user.firstName" /> <br> <br>
             <label>Last Name<span style="color:red">*</span></label>
-            <input type="text" name="lastname" size="20" id="lastName" [(ngModel)]="user.lastName" /> <br> <br>
+            <input type="text" maxlength="25" required  pattern="[a-zA-Z][a-zA-z]+" name="lastname" size="20" id="lastName" [(ngModel)]="user.lastName" /> <br> <br>
             <label>Middle Name</label>
-            <input type="text" name="middlename" size="20" id="middleName" [(ngModel)]="user.middleName" /> <br> <br>
+            <input type="text" maxlength="25" name="middlename" size="20" id="middleName" [(ngModel)]="user.middleName" /> <br> <br>
             <label>Father's Name<span style="color:red">*</span></label>
-            <input type="text" name="fathername" size="20" [(ngModel)]="user.fatherName" /> <br> <br>
+            <input type="text" maxlength="25" required  pattern="[a-zA-Z][a-zA-z]+" name="fathername" size="20" [(ngModel)]="user.fatherName" /> <br> <br>
             <label>Mobile Number<span style="color:red">*</span></label>
-            <input type="text" name="mobilenumber" size="10" [(ngModel)]="user.mobileNumber" /> <br> <br>
+            <input type="text" maxlength="10" required  pattern="[7-9]{1}[0-9]{9}" name="mobilenumber" size="10" [(ngModel)]="user.mobileNumber" /> <br> <br>
             <label>Email ID<span style="color:red">*</span></label>
-            <input type="text" name="EmailID" size="20" [(ngModel)]="user.emailId" /> <br> <br>
+            <input type="text" required pattern="^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$" name="EmailID" size="20" [(ngModel)]="user.emailId" /> <br> <br>
             <label>Aadhar Card Number<span style="color:red">*</span></label>
-            <input type="text" name="AadharCardNumber" size="12" [(ngModel)]="user.aadharNumber" /> <br> <br>
+            <input type="text" maxlength="12" required pattern="[0-9]+" name="AadharCardNumber" size="12" [(ngModel)]="user.aadharNumber" /> <br> <br>
             <label>Date of Birth<span style="color:red">*</span></label><br>
             <input type="date" name="dob" size="20" [(ngModel)]="user.dateOfBirth" /> <br> <br>
 
             <label>Address Line 1<span style="color:red">*</span></label>
+<<<<<<< HEAD
             <input type="text" name="add1" size="20" [(ngModel)]="user.addressLine1" /> <br> <br>
             <label>Address Line 2<span style="color:red">*</span></label>
+=======
+            <input type="text" required name="add1" size="20" [(ngModel)]="user.addressLine1" /> <br> <br>
+            <label>Address Line 2</label>
+>>>>>>> 065e456b40afb4c618c54009ebca48eeb79c87d0
             <input type="text" name="add2" size="20" [(ngModel)]="user.addressLine2" /> <br> <br>
             <label>Landmark </label>
             <input type="text" name="landmark" size="20" [(ngModel)]="user.landmark" /> <br> <br>
             <label>State<span style="color:red">*</span></label>
-            <input type="text" name="state" size="20" [(ngModel)]="user.state" /> <br> <br>
+            <input type="text" required pattern="[a-zA-Z][a-zA-z]+" name="state" size="20" [(ngModel)]="user.state" /> <br> <br>
             <label>City<span style="color:red">*</span></label>
-            <input type="text" name="city" size="20" [(ngModel)]="user.city" /> <br> <br>
+            <input type="text" required pattern="[a-zA-Z][a-zA-z]+" name="city" size="20" [(ngModel)]="user.city" /> <br> <br>
             <label>Pincode<span style="color:red">*</span></label>
-            <input type="text" name="pincode" size="6" [(ngModel)]="user.pincode" /> <br> <br>
+            <input type="text" maxlength="6" required pattern="[0-9]+" name="pincode" size="6" [(ngModel)]="user.pincode" /> <br> <br>
 
             <label>Occupation Type<span style="color:red">*</span></label>
             <input type="text" name="occupation" size="20" [(ngModel)]="user.occupationType" /> <br> <br>
@@ -49,7 +55,7 @@
             <select [(ngModel)]="annualIncome" name="annualIncome">
                 <option value="Gross Annual Income">Gross Annual Income</option>
                 <option value=">100000">
-                    <100000< /option>
+                    Below 100000 </option>
                 <option value="100000-500000">100000-500000</option>
                 <option value="Above 500000">500000-1000000</option>
                 <option value="Above 1000000">Above 1000000</option>
@@ -58,9 +64,22 @@
 
         </div>
         <div class="registerbtn">
+<<<<<<< HEAD
             <input type="submit" value="Register"
                 style="color:white;background-color:#1e4f8a;font-size:25px;padding:5px;margin-left:200px;">
+=======
+            <button type="submit" value="Register"
+                style="color:white;background-color:#1e4f8a;font-size:25px;padding:5px;">Register</button>
+>>>>>>> 065e456b40afb4c618c54009ebca48eeb79c87d0
         </div>
     </form>
 
 </div>
+<<<<<<< HEAD
+=======
+
+
+
+
+<app-admin-approval></app-admin-approval>
+>>>>>>> 065e456b40afb4c618c54009ebca48eeb79c87d0
