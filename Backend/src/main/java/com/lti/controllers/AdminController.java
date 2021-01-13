@@ -11,7 +11,7 @@ import com.lti.dto.AdminCredentials;
 import com.lti.entities.Admin;
 import com.lti.services.AdminService;
 import com.lti.status.LoginStatus;
-import com.lti.status.Status.statusType;
+import com.lti.status.Status.StatusType;
 
 @RestController
 @CrossOrigin
@@ -29,12 +29,12 @@ public class AdminController {
 			//loginStatus.setName(admin.get);
 			loginStatus.setUserId(admin.getAdminId());
 			loginStatus.setMessage("Login Successful");
-			loginStatus.setStatus(statusType.SUCCESS);
+			loginStatus.setStatus(StatusType.SUCCESS);
 			return loginStatus;
 		} catch (AccountNotFoundException e) {
 			LoginStatus loginStatus = new LoginStatus();
 			loginStatus.setMessage(e.getMessage());
-			loginStatus.setStatus(statusType.FAILURE);
+			loginStatus.setStatus(StatusType.FAILED);
 			return loginStatus;
 		}
 

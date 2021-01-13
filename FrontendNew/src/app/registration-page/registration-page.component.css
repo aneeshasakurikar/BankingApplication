@@ -1,9 +1,31 @@
 body{  
-  font-family: Calibri, Helvetica, sans-serif;  
+  font-family: Calibri, Helvetica, sans-serif;
+   
 }  
+#head-div {
+    width:1400px;
+    height: 100px;
+    background-color: #1e4f8a;
+    margin-top: 40px;
+    margin-left: 50px;
+    margin-right: 50px;
+    border: black;
+        border-width:3px;
+        border-style:solid;
+}
+
+#head-text {
+    font-style: bold;
+    font: Arial, Helvetica, sans-serif;
+    text-align: center;
+	color:white;
+}
+
+
 .container {  
+    margin-left:400px;
     padding: 50px;
-    width: 50%;  
+    width: 40%;  
 }  
   
 input[type=text], input[type=password], textarea {  
@@ -14,27 +36,29 @@ input[type=text], input[type=password], textarea {
   background: #f1f1f1;  
 }  
 input[type=text]:focus, input[type=password]:focus {  
-  background-color: orange;  
+  background-color: #1e4f8a;
+  color:white;
+font-size:25px;  
   outline: none;  
 }  
- div {  
-            padding: 10px 0;  
-         }  
+ 
+		 
 hr {  
   border: 1px solid #f1f1f1;  
   margin-bottom: 25px;  
 }  
 .registerbtn {  
-  background-color: #4CAF50;  
-  color: white;  
-  padding: 16px 20px;  
-  margin: 8px 0;  
-  border: none;  
+  background-color: #1e4f8a;  
+  color: #1e4f8a;  
+  margin-top:20px;
+  margin-left: 240px ; 
+  margin-bottom:100px;  
+  font-size:60px;
   cursor: pointer;  
-  width: 100%;  
-  opacity: 0.9;  
+  width: 10%;  
+  opacity: 0.9; 
+    
 }  
 .registerbtn:hover {  
   opacity: 1;  
 }  
-

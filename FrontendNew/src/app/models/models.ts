@@ -22,3 +22,9 @@ export class UserDetails{
     public sourceOfIncome :string;
     public annualIncome :string;
 }
+
+export class UserApprovalDetails{
+    public aadharNumber :string;
+    public status :boolean;
+    public adminRemarks :string;
+}

@@ -1,5 +1,7 @@
 package com.lti.dto;
 
+import com.lti.status.Status;
+
 public class RegisterStatus extends Status{
 
 	private int registeredUserId;

@@ -1,12 +1,21 @@
 package com.lti.status;
 
+
 public class Status {
 
+	private StatusType status;
 	private String message;
-	private statusType status;
 
-	public enum statusType {
-		SUCCESS, FAILURE;
+	public static enum StatusType {
+		SUCCESS, FAILED;
+	}
+
+	public StatusType getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusType status) {
+		this.status = status;
 	}
 
 	public String getMessage() {
@@ -15,14 +24,6 @@ public class Status {
 
 	public void setMessage(String message) {
 		this.message = message;
-	}
-
-	public statusType getStatus() {
-		return status;
-	}
-
-	public void setStatus(statusType status) {
-		this.status = status;
 	}
 
 }

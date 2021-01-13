@@ -1,20 +1,33 @@
-<div>
-    <form>
-        <div class="div1" align="center">
-            Login to your account
-        </div><br>
-        <div class="div2" align="center">
-            <p>User Id    -    <input align="center" type="text"  name="accno" required><br><br></p>
-            <p>Password     -    <input align="center" type="number"  name="otp" required><br><br></p>
-        </div>
-        <div align="center">
-            <button id="b1" type="submit">Login</button><br><br>
-        </div>
-        <div align="center">
-            <p style="font-style: italic;">First time user? Register</p>
-            <p style="font-style: italic;">Forgot User Id?</p>
-            <p style="font-style: italic;">Forgot Password?</p>
+<form action="loginAdmin" method="post">
+    <div style="padding: 100px 0 0 250px;">
+        <div id="login-box">
+
+            <h2 align="center">Login to your Account</h2>
+
+            <br />
+            <br />
+            <div id="login-box-name" style="margin-top:20px;">User Id:</div>
+            <div id="login-box-field" style="margin-top:20px;">
+                <input name="q" class="form-login" title="Username" value="" size="30" maxlength="2048" />
+            </div>
+            <div id="login-box-name">Password:</div>
+            <div id="login-box-field">
+                <input name="q" type="password" class="form-login" title="Password" value="" size="30"
+                    maxlength="2048" />
+            </div>
+            <br />
+            <br />
+            <br />
+            <div align="center">
+                <button id="login-button" type="submit" value="Log In">Login</button>
+            </div>
+            <br />
+            <div align="center">
+               <a routerLink="/register" > <p style="font-style: italic;font-weight: bolder;">First time user? Register</p></a>
+               <a routerLink="/forgotId" > <p style="font-style: italic;font-weight: bolder;">Forgot User Id?</p></a>
+               <a routerLink="/forgotPass"> <p style="font-style: italic;font-weight: bolder;">Forgot Password?</p></a>
+            </div>
         </div>
 
-    </form>
-</div>
+    </div>
+</form>

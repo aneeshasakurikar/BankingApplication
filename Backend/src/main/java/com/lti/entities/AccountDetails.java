@@ -1,6 +1,5 @@
 package com.lti.entities;
 
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,16 +14,15 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "account_details_table")
-@SequenceGenerator(name = "account_gen", sequenceName = "account_gen", initialValue = 123001)
+//@SequenceGenerator(name = "acc_gen", sequenceName = "acc_gen", initialValue = 323001)
 public class AccountDetails {
-
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "account_gen")
+	//@GeneratedValue(strategy = GenerationType.AUTO, generator = "acc_gen")
 	private int accountNumber;
 
-	@OneToOne
-	@JoinColumn(name = "userId")
-	private UserDetails userId;
+	private int userId;
+
 
 	@Column(length = 15)
 	private String loginPassword;
@@ -43,11 +41,11 @@ public class AccountDetails {
 		this.accountNumber = accountNumber;
 	}
 
-	public UserDetails getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 
-	public void setUserId(UserDetails userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 

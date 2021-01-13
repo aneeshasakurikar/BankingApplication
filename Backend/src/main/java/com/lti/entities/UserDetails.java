@@ -13,16 +13,22 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user_details_table")
-@NamedQuery(name = "checkIfUserPresent", query = "select count(ud.aadharNumber) from UserDetails ud where ud.aadharNumber = :aadharNumber")
-@NamedQuery(name="getAllUnapprovedUsers", query="from UserDetails ud where ud.status=0") 
-@NamedQuery(name="updateUserStatus", query="update UserDetails set status = :status, adminRemarks = :adminRemarks where userId = :userId ") 
+//@NamedQuery(name="getAllUnapprovedUsers", query="from UserDetails ud where ud.status=0") 
+//@NamedQuery(name="updateUserStatus", query="update UserDetails set status = :status, adminRemarks = :adminRemarks where aadharNumber = :aadharNumber ") 
 @NamedQuery(name="checkIfUserApproved", query="select status from UserDetails where userId = :userId") 
-@SequenceGenerator(name = "user_gen", sequenceName = "user_gen", initialValue = 10001)
+@NamedQuery(name="getEmailByAadharNumber", query="select emailId from UserDetails where aadharNumber = :aadharNumber") 
+//@NamedQuery(name="getAccountNumberByAadharNumber", query="select accountNumber from UserDetails where aadharNumber = :aadharNumber") 
+//@NamedQuery(name="deleteUserByAadharNumber", query="delete from UserDetails where aadharNumber = :aadharNumber")
+//@NamedQuery(name="getLastAccountNumber", query="select max(accountNumber) from UserDetails")
+//@NamedQuery(name="getnumOfUsers", query="select count(*) from UserDetails")
+@SequenceGenerator(name = "user_gen", sequenceName = "user_gen", initialValue = 10101)
 public class UserDetails {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "account_gen")
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "user_gen")
 	private int userId;
+	
+	//private int accountNumber;
 
 	@Column(length = 5)
 	private String title;
@@ -42,7 +48,7 @@ public class UserDetails {
 	@Column(length = 10)
 	private String mobileNumber;
 
-	@Column(length = 25)
+	@Column(length = 35)
 	private String emailId;
 
 	@Column(length = 12)
@@ -75,6 +81,18 @@ public class UserDetails {
 	private String annualIncome;
 	private boolean status;
 	private String adminRemarks;
+	
+//	public int getAccountNumber() {
+//		return accountNumber;
+//	}
+//
+//	public void setAccountNumber(int accountNumber) {
+//		this.accountNumber = accountNumber;
+//	}
+
+	public boolean isStatus() {
+		return status;
+	}
 
 	public String getAdminRemarks() {
 		return adminRemarks;
