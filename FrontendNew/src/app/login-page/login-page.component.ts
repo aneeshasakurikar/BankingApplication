@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginCreds } from '../models/models';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login-page',
@@ -8,12 +10,16 @@ import { Router } from '@angular/router';
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  loginCreds: LoginCreds = new LoginCreds();
 
-userDashboard():void{
-  const navigationDetails: string[] = ['/userDashboard'];
-    this.router.navigate(navigationDetails);
-}
+  constructor(private http: HttpClient,private router: Router) { }
+
+// userDashboard():void{
+//   const navigationDetails: string[] = ['/userDashboard'];
+//     this.router.navigate(navigationDetails);
+// }
+
+
 
   ngOnInit() {
   }

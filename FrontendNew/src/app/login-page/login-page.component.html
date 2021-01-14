@@ -1,4 +1,4 @@
-<form action="loginAdmin" method="post">
+<form (ngSubmit)="login()">
     <div style="padding: 100px 0 0 250px;">
         <div id="login-box">
 
@@ -8,12 +8,13 @@
             <br />
             <div id="login-box-name" style="margin-top:20px;">User Id:</div>
             <div id="login-box-field" style="margin-top:20px;">
-                <input name="q" class="form-login" title="Username" value="" size="30" maxlength="2048" />
+                <input name="q" class="form-login" title="Username" value="" size="30" maxlength="2048" 
+                name="userId" [(ngModel)]=loginCreds.userId/>
             </div>
             <div id="login-box-name">Password:</div>
             <div id="login-box-field">
-                <input name="q" type="password" class="form-login" title="Password" value="" size="30"
-                    maxlength="2048" />
+                <input name="q" type="password" class="form-login" title="loginPassword" value="" size="30"
+                    maxlength="2048" name="password" [(ngModel)]=loginCreds.password/>
             </div>
             <br />
             <br />

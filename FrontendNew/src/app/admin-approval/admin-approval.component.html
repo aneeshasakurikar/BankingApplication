@@ -1,65 +1,4 @@
-<<<<<<< HEAD
 
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<th scope="col"> User ID</th>
-            <th style="margin: auto;" scope="col">Title</th>
-            <th style="margin: auto; border-collapse: collapse;" scope="col">First Name</th>
-            <th scope="col">Middle Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Mobile Number</th>
-            <th scope="col">Email Address</th>
-            <th scope="col">Father's Name</th>
-            <th scope="col">Aadhar Number</th>
-            <th scope="col"> Date Of Birth</th>
-            <th scope="col"> Address</th>
-            <th scope="col"> Approved By admin</th>
-            <th scope="col">Admin Remark</th>
-            <th scope="col">Submit Details</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr *ngFor="let user of users">
-			<td><span>{{user.userId}}</span></td>
-        <td><span>{{user.title}}</span></td>
-        <td><span>{{user.firstName}}</span></td>
-        <td><span>{{user.middleName}}</span></td>
-        <td><span>{{user.lastName}}</span></td>
-        <td><span>{{user.mobileNumber}}</span></td>
-        <td><span>{{user.emailId}}</span></td>
-        <td><span>{{user.fatherName}}</span></td>
-        <td><span>{{user.aadharNumber}}</span></td>
-        <td><span>{{user.dateOfBirth}}</span></td>
-        <td><span>
-          {{user.addressLine1}} <br>
-          {{user.addressLine2}} <br>
-          {{user.landmark}} <br>
-          {{user.city}} <br>
-          {{user.state}} <br>
-          {{user.pincode}} <br>
-        </span></td>
-        <td><span>
-          <select name="status" [(ngModel)]="admin.status" >
-              <option value="true" >Approved</option>
-              <option value="false" >Decline</option>
-          </select>
-      </span></td>
-        <td><span><input type="text" name="remarks" [(ngModel)]="admin.adminRemarks"></span></td>
-        <td><button class="btn btn-dark" type="button"  (click) ="sendAdminRemarks(user.aadharNumber)" style="margin-bottom: 20px; width: 100px;">Submit</button><br>
-        </td>
-		</tr>
-	</tbody>
-</table>   
-=======
-<html>
-
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-  
-</head>
-
-<body>
 
   <div id="btn-div">
     <button id="logoutBtn" (click)="adminLogout()">Log Out</button>
@@ -121,8 +60,3 @@
     </table>
     <br><br><br>
   </div>
-</body>
-
-
-</html>
->>>>>>> 3645ace00adae235caba3f87c439fd0f4adb38cf

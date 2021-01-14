@@ -21,6 +21,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { ServicesService } from './services/services.service';
 import { AdminApprovalComponent } from './admin-approval/admin-approval.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { AccountSummaryComponent } from './account-summary/account-summary.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { NeftFormComponent } from './neft-form/neft-form.component';
+import { ImpsFormComponent } from './imps-form/imps-form.component';
+import { RtgsFormComponent } from './rtgs-form/rtgs-form.component';
+import { TransferSuccessComponent } from './transfer-success/transfer-success.component';
+import { AddBeneficiaryComponent } from './add-beneficiary/add-beneficiary.component';
+import { FundsTransferComponent } from './funds-transfer/funds-transfer.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +50,25 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 
     AdminApprovalComponent,
 
-    UserDashboardComponent
+    UserDashboardComponent,
+
+    AccountSummaryComponent,
+
+    UserDetailsComponent,
+
+    ChangePasswordComponent,
+
+    NeftFormComponent,
+
+    ImpsFormComponent,
+
+    RtgsFormComponent,
+
+    TransferSuccessComponent,
+
+    AddBeneficiaryComponent,
+
+    FundsTransferComponent
 
   ],
   imports: [

@@ -3,7 +3,7 @@ package com.lti.status;
 public class LoginStatus extends Status {
 
 	private int userId;
-	private String name;
+	private String password;
 
 	public int getUserId() {
 		return userId;
@@ -13,12 +13,14 @@ public class LoginStatus extends Status {
 		this.userId = userId;
 	}
 
-	public String getName() {
-		return name;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setPassword(String password) {
+		this.password = password;
 	}
+
+	
 
 }

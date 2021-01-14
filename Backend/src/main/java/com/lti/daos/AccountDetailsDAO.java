@@ -13,6 +13,13 @@ public interface AccountDetailsDAO {
 	void saveAccountDetails(int accountNumber, int userId, String loginPassword, String transactionPassword);
 
 	
-	boolean userExsit(int beneficiaryAccountnumber);
+	boolean userExist(int beneficiaryAccountnumber);
+
+	int getInvalidAttempts(int userId);
+
+	boolean checkCredentials(int userId, String password);
+
+	void setInvalidAttemptsZero(int userId);
+
 
 }

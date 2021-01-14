@@ -15,27 +15,27 @@ import com.lti.status.Status.StatusType;
 @RestController
 public class BeneficiaryController {
 
-	@Autowired
+	//@Autowired
 	BeneficiaryServiceImpl beneficiaryService;
 	
-	@PostMapping(path="/addBeneficiary")
-	private Status addBeneficiary(@RequestBody BeneficiaryDTO beneficiaryDTO ) {
-		try {
-			beneficiaryService.save(beneficiaryDTO);
-			Status status = new Status();
-			status.setMessage("Beneficiary Added");
-			status.setStatus(StatusType.SUCCESS);
-			return status;
-		}
-		catch(ServiceException e) 
-		{
-			Status status = new Status();
-			status.setMessage(e.getMessage());
-			status.setStatus(StatusType.FAILED);
-			return status;
-		}
-		
-	}
+//	@PostMapping(path="/addBeneficiary")
+//	private Status addBeneficiary(@RequestBody BeneficiaryDTO beneficiaryDTO ) {
+//		try {
+//			beneficiaryService.save(beneficiaryDTO);
+//			Status status = new Status();
+//			status.setMessage("Beneficiary Added");
+//			status.setStatus(StatusType.SUCCESS);
+//			return status;
+//		}
+//		catch(ServiceException e) 
+//		{
+//			Status status = new Status();
+//			status.setMessage(e.getMessage());
+//			status.setStatus(StatusType.FAILED);
+//			return status;
+//		}
+//		
+//	}
 	
 	@GetMapping(path="/viewBeneficiaryList")
 	private void viewBeneficiaryList(){

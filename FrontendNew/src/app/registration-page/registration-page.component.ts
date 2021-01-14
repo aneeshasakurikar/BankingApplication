@@ -17,7 +17,7 @@ export class RegistrationPageComponent implements OnInit {
 
   register() {
     this.service.register(this.user).subscribe(response => {
-      alert(JSON.stringify(response));
+      alert(JSON.stringify(response.message));
     })
   }
 

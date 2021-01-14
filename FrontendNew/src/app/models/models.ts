@@ -28,3 +28,8 @@ export class UserApprovalDetails{
     public status :boolean;
     public adminRemarks :string;
 }
+
+export class LoginCreds{
+    public userId :number;
+    public loginPassword :string;
+}

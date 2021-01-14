@@ -10,22 +10,21 @@ import com.lti.entities.AccountDetails;
 
 @Repository
 public class AccountDetailsDAOImpl implements AccountDetailsDAO {
-	
+
 	@PersistenceContext
 	private EntityManager entityManager;
-	
+
 	@Override
 	@Transactional
 	public void save(AccountDetails accountDetails) {
 		entityManager.persist(accountDetails);
 	}
-	
+
 	@Override
 	public int getLastAccountNumber() {
 		return (int) entityManager.createQuery("select max(ad.accountNumber) from AccountDetails ad").getSingleResult();
 	}
 
-	
 	@Override
 	public long numOfUser() {
 		return (long) entityManager.createQuery("select count(*) from AccountDetails").getSingleResult();
@@ -49,10 +48,36 @@ public class AccountDetailsDAOImpl implements AccountDetailsDAO {
 	}
 
 	@Override
-	public boolean userExsit(int beneficiaryAccountnumber) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean userExist(int userId) {
+		System.out.println("dao user exist");
+		return (Long) entityManager
+				.createQuery("select count(ad.userId) from AccountDetails ad where ad.userId = :userId")
+				.setParameter("userId", userId).getSingleResult() == 1 ? true : false;
 	}
 
-	
+	@Override
+	public int getInvalidAttempts(int userId) {
+		System.out.println("dao got invalid");
+		return (int) entityManager
+				.createQuery("select ad.invalidAttempts from AccountDetails ad where ad.userId= :userId")
+				.setParameter("userId", userId).getSingleResult();
+	}
+
+	@Override
+	public boolean checkCredentials(int userId, String password) {
+		System.out.println("dao check cred");
+		return (Long) entityManager.createQuery(
+				"select count(ad.userId) from AccountDetails ad where ad.userId=:userId and ad.loginPassword=:password")
+				.setParameter("userId", userId).setParameter("password", password).getSingleResult() == 1 ? true
+						: false;
+	}
+
+	@Override
+	@Transactional
+	public void setInvalidAttemptsZero(int userId) {
+		System.out.println("dao set invalid");
+		entityManager.createQuery("update AccountDetails set invalidAttempts=0 where userId= :userId")
+				.setParameter("userId", userId).executeUpdate();
+	}
+
 }

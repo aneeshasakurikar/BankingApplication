@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from '../services/services.service';
 import { HttpClient } from '@angular/common/http';
-<<<<<<< HEAD
 import { UserApprovalDetails } from '../models/models';
-=======
+
 import { Router } from '@angular/router';
 import { LocationStrategy } from '@angular/common';
->>>>>>> 3645ace00adae235caba3f87c439fd0f4adb38cf
 
 @Component({
   selector: 'app-admin-approval',
@@ -17,10 +15,9 @@ export class AdminApprovalComponent implements OnInit {
 
   userList: Object[];
   public users;
-<<<<<<< HEAD
+
   public admin = new UserApprovalDetails();
-  constructor(private http: HttpClient) { }
-=======
+  
   constructor(private http: HttpClient,private router:Router, private location: LocationStrategy) { 
 
     history.pushState(null, null, window.location.href);  
@@ -28,7 +25,7 @@ this.location.onPopState(() => {
   history.pushState(null, null, window.location.href);
 });
   }
->>>>>>> 3645ace00adae235caba3f87c439fd0f4adb38cf
+
 
   approve(){
 

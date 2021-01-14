@@ -19,7 +19,7 @@ public class BeneficiaryServiceImpl implements BeneficiaryService {
 		
 		int beneficiaryAccountnumber = beneficiaryDTO.getBeneficiaryAccountnumber();
 		try {
-		if(!accountDetailsDAO.userExsit(beneficiaryAccountnumber)) {
+		if(!accountDetailsDAO.userExist(beneficiaryAccountnumber)) {
 			throw new ServiceException("No such account exist!");
 		}
 		else {

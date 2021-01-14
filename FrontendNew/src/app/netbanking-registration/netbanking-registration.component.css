@@ -8,17 +8,17 @@
     
     #login-box {
         
-        width:700px;
+        width:350px;
         height: 700px;
         padding: 60px 76px 0px 100px;
         color: #ebebeb;
         font: 20px Arial, Helvetica, sans-serif;
-        margin-left:80px;
         border: black;
         border-width:6px;
         border-style:solid;
         }
     
+
     #login-box h2 {
     padding:0;
     margin:0;
@@ -34,9 +34,8 @@
     color:#000000;
     text-align: right;
     font:bold;
-    font-size:8px;
-    padding: 14px 10px 0 0;
-    margin:0 0 7px 0;
+    font-size:12px;
+    padding-top: 8px;
     }
     
     #login-box-field {
@@ -44,7 +43,7 @@
     display:inline;
     width:230px;
     margin:0;
-    margin:0 20px 7px 0;
+    margin-bottom: 10px;
     }
     
     
