@@ -20,6 +20,11 @@ public interface AccountDetailsDAO {
 	boolean checkCredentials(int userId, String password);
 
 	void setInvalidAttemptsZero(int userId);
+	String getTransactionPassword(int accountNumber);
+
+	int getBalance(int fromAccount);
+
+	void updateBalance(int fromAccount, int curBalance);
 
 
 }
