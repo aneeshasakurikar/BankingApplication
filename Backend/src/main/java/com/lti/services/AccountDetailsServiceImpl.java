@@ -44,17 +44,17 @@ public class AccountDetailsServiceImpl implements AccountDetailsService {
 
 	}
 
-	@Override
-	public String checkUserStatus(int userId) {
-		try {
-			if()
-			if(userDetailsDAO.getStatus(userId)) {
-				return "Approved";
-			}
-			return "Waiting for admin approval";
-		} catch (Exception e) {
-			throw new ServiceException("Incorrect email/password");
-		}
-
-	}
+//	@Override
+//	public String checkUserStatus(int userId) {
+//		try {
+//			
+//			if(userDetailsDAO.getStatus(userId)) {
+//				return "Approved";
+//			}
+//			return "Waiting for admin approval";
+//		} catch (Exception e) {
+//			throw new ServiceException("Incorrect email/password");
+//		}
+//
+//	}
 }

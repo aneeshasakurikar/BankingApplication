@@ -12,9 +12,10 @@ public class BeneficiaryDAOImpl implements BeneficiaryDAO {
 	EntityManager entityManager;
 
 	@Override
-	public boolean userExsit(int beneficiaryAccountnumber) {
+	public boolean userExsit(int beneficiaryAccountnumber,int userAccountNumber) {
 		
-		return (boolean) entityManager.createNamedQuery("doesUserExist").setParameter("accountNumber",beneficiaryAccountnumber ).getSingleResult();
+		return (boolean) entityManager.createQuery("select count(:beneficiaryAccountnumber) from Beneficiary where userAccountNumber=:userAccountNumber")
+				.setParameter("beneficiaryAccountnumber", beneficiaryAccountnumber).setParameter("userAccountNumber", userAccountNumber).getSingleResult();
 	}
 
 	@Override

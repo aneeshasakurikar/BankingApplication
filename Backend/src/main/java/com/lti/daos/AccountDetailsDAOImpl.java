@@ -80,4 +80,27 @@ public class AccountDetailsDAOImpl implements AccountDetailsDAO {
 				.setParameter("userId", userId).executeUpdate();
 	}
 
+	@Override
+	public String getTransactionPassword(int accountNumber) {
+		
+		return (String) entityManager.createQuery("select transactionPassword from AccountDetails where accountNumber = :accountNumber ")
+				.setParameter("accountNumber", accountNumber).getSingleResult();
+	}
+
+	@Override
+	public int getBalance(int fromAccount) {
+		// TODO Auto-generated method stub
+		return (int) entityManager.createQuery("select balance from AccountDetails where accountNumber = :fromAccount")
+				.setParameter("fromAccount", fromAccount).getSingleResult();
+	}
+
+	@Override
+	@Transactional
+	public void updateBalance(int fromAccount, int curBalance) {
+		// TODO Auto-generated method stub
+		entityManager.createQuery("update AccountDetails set balance=:curBalance where accountNumber =: fromAccount")
+		.setParameter("curBalance", curBalance).setParameter("fromAccount", fromAccount).executeUpdate();
+		
+	}
+
 }

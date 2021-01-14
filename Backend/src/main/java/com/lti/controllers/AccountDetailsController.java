@@ -54,21 +54,21 @@ public class AccountDetailsController {
 	}
 
 	
-	@PostMapping(path="/checkStatus")
-	private Status checkStatus(@RequestBody int userId) {
-		try {
-			String userStatus = accountDetailsService.checkUserStatus(userId);
-			Status status = new Status();
-			status.setStatus(StatusType.SUCCESS);
-			status.setMessage(userStatus);
-		}
-		catch(ServiceException e) {
-			LoginStatus status = new LoginStatus();
-			status.setStatus(StatusType.FAILED);
-			status.setMessage(e.getMessage());
-			return status;			
-		}
-	}
+//	@PostMapping(path="/checkStatus")
+//	private Status checkStatus(@RequestBody int userId) {
+//		try {
+//			String userStatus = accountDetailsService.checkUserStatus(userId);
+//			Status status = new Status();
+//			status.setStatus(StatusType.SUCCESS);
+//			status.setMessage(userStatus);
+//		}
+//		catch(ServiceException e) {
+//			LoginStatus status = new LoginStatus();
+//			status.setStatus(StatusType.FAILED);
+//			status.setMessage(e.getMessage());
+//			return status;			
+//		}
+//	}
 
 	@PostMapping(path = "/forgotLoginPassword")
 	private void forgotPassword() {
