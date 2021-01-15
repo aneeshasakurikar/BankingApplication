@@ -4,17 +4,20 @@ import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.lti.dto.BeneficiaryDTO;
 
+@Repository
 public class BeneficiaryDAOImpl implements BeneficiaryDAO {
 	@Autowired
 	EntityManager entityManager;
 
 	@Override
-	public boolean userExsit(int beneficiaryAccountnumber) {
+	public boolean userExsit(int beneficiaryAccountnumber,int userAccountNumber) {
 		
-		return (boolean) entityManager.createNamedQuery("doesUserExist").setParameter("accountNumber",beneficiaryAccountnumber ).getSingleResult();
+		return (boolean) entityManager.createQuery("select count(:beneficiaryAccountnumber) from Beneficiary where userAccountNumber=:userAccountNumber")
+				.setParameter("beneficiaryAccountnumber", beneficiaryAccountnumber).setParameter("userAccountNumber", userAccountNumber).getSingleResult();
 	}
 
 	@Override
