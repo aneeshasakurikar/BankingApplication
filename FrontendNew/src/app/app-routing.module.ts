@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AccountDetailsComponent } from './account-details/account-details.component';
 import { AddBeneficiaryComponent } from './add-beneficiary/add-beneficiary.component';
 
 import { AdminApprovalComponent } from './admin-approval/admin-approval.component';
@@ -18,6 +19,7 @@ import { RegistrationPageComponent } from './registration-page/registration-page
 import { RtgsFormComponent } from './rtgs-form/rtgs-form.component';
 import { SetNewPasswordComponent } from './set-new-password/set-new-password.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 const routes: Routes = [
   // {path:'set-pass',component:SetNewPasswordComponent}
@@ -33,6 +35,9 @@ const routes: Routes = [
   {  path:'adminLogin', component:AdminLoginComponent},
   {  path:'adminLogout', component:HomePageComponent},
   {  path:'userLogin', component:LoginPageComponent},
+  {  path:'userDetails', component:UserDetailsComponent},
+  {  path:'accountDetails', component:AccountDetailsComponent},
+  {  path:'goHome', component:HomePageComponent},
   {  path:'netBankRegister', component:NetbankingRegistrationComponent},
   {  path:'adminApproval', component:AdminApprovalComponent},
   {  path:'userDashboard', component:UserDashboardComponent},

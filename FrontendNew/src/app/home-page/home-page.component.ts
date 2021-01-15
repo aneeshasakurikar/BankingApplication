@@ -10,11 +10,8 @@ import { AdminLoginComponent } from '../admin-login/admin-login.component';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(private router:Router, private location: LocationStrategy) { 
-    history.pushState(null, null, window.location.href);  
-this.location.onPopState(() => {
-  history.pushState(null, null, window.location.href);
-});
+  constructor(private router:Router) { 
+ 
   }
 
   ngOnInit() {

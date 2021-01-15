@@ -1,4 +1,4 @@
-
+<app-header></app-header>
 
   <div id="btn-div">
     <button id="logoutBtn" (click)="adminLogout()">Log Out</button>
@@ -18,12 +18,12 @@
           <th scope="col">Father's Name</th>
           <th scope="col">Aadhar Number</th>
           <th scope="col"> Date Of Birth</th>
-          <th scope="col"> Address Line1</th>
-          <th scope="col"> Address Line2</th>
+          <th scope="col"> Address</th>
+          <!--<th scope="col"> Address Line2</th>
           <th scope="col"> Landmark</th>
           <th scope="col"> City</th>
           <th scope="col"> State</th>
-          <th scope="col"> Pincode</th>
+          <th scope="col"> Pincode</th> -->
           <th scope="col"> Approved By admin</th>
           <th scope="col">Admin Remark</th>
           <th scope="col">Submit Details</th>
@@ -41,12 +41,12 @@
           <td><span>{{user.fatherName}}</span></td>
           <td><span>{{user.aadharNumber}}</span></td>
           <td><span>{{user.dateOfBirth}}</span></td>
-          <td><span>{{user.addressLine1}}</span></td>
-          <td><span>{{user.addressLine2}}</span></td>
+          <td><span>{{user.addressLine1}}<br> {{user.addressLine2}}<br>{{user.landmark}}<br>{{user.city}}<br>{{user.state}}<br>{{user.pincode}}</span></td>
+         <!-- <td><span>{{user.addressLine2}}</span></td>
           <td><span>{{user.landmark}}</span></td>
           <td><span>{{user.city}}</span></td>
           <td><span>{{user.state}}</span></td>
-          <td><span>{{user.pincode}}</span></td>
+          <td><span>{{user.pincode}}</span></td>-->
           <td><span>
               <select id=i name="approvedByAdmin">
                 <option value="Approved">Approved</option>
@@ -60,3 +60,4 @@
     </table>
     <br><br><br>
   </div>
+<app-footer></app-footer>

@@ -21,5 +21,7 @@ public interface AccountDetailsDAO {
 
 	void setInvalidAttemptsZero(int userId);
 
+	AccountDetails fetchAccountDetails(int userId);
+
 
 }

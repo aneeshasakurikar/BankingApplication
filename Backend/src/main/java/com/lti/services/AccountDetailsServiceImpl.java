@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.lti.daos.AccountDetailsDAO;
 import com.lti.daos.UserDetailsDAO;
 import com.lti.dto.AccountLogin;
+import com.lti.entities.AccountDetails;
 
 @Service
 public class AccountDetailsServiceImpl implements AccountDetailsService {
@@ -47,8 +48,9 @@ public class AccountDetailsServiceImpl implements AccountDetailsService {
 	@Override
 	public String checkUserStatus(int userId) {
 		try {
-			if()
-			if(userDetailsDAO.getStatus(userId)) {
+			
+			//if(userDetailsDAO.getStatus(userId)) {
+			if(userDetailsDAO.isUserApproved(userId)) {
 				return "Approved";
 			}
 			return "Waiting for admin approval";
@@ -56,5 +58,10 @@ public class AccountDetailsServiceImpl implements AccountDetailsService {
 			throw new ServiceException("Incorrect email/password");
 		}
 
+	}
+
+	public AccountDetails getAccountDetails(int userId) {
+		
+		return accountDetailsDAO.fetchAccountDetails(userId);
 	}
 }

@@ -1,3 +1,4 @@
+<app-header></app-header>
 <form (ngSubmit)="login()">
     <div style="padding: 100px 0 0 250px;">
         <div id="login-box">
@@ -20,7 +21,8 @@
             <br />
             <br />
             <div align="center">
-                <button id="login-button" type="submit" value="Log In">Login</button>
+                <button id="login-button" type="submit" value="Go Home" (click)="goHome()">Home Page</button>
+                    <button id="login-button" type="submit" value="Log In" (click)="userDashboard()">Login</button>
             </div>
             <br />
             <div align="center">
@@ -32,3 +34,4 @@
 
     </div>
 </form>
+<app-footer></app-footer>

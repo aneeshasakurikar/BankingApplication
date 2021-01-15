@@ -1,11 +1,10 @@
 
 #head-div {
-    width:1400px;
+    width:100%;
     height: 100px;
     background-color: #1e4f8a;
     margin-top: 40px;
-    margin-left: 50px;
-    margin-right: 50px;
+
     border: black;
         border-width:3px;
         border-style:solid;

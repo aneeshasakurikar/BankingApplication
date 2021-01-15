@@ -8,11 +8,13 @@ import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.lti.dto.GetUser;
 import com.lti.dto.Status;
 import com.lti.dto.Status.StatusType;
 import com.lti.dto.UpdateUserStatus;
@@ -25,6 +27,8 @@ public class UserDetailsController {
 
 	@Autowired
 	UserDetailsServiceImpl userDetailsService;
+	
+	
 		
 //	@Autowired
 //	private MailSender emailSender;
@@ -54,6 +58,13 @@ public class UserDetailsController {
 //		  "state":"mp", "status":1, "title":"ms"}
 		 
 
+	}
+	
+	@GetMapping(path="/viewDetails/{userId}")
+	public UserDetails viewUserDetails(@PathVariable(value = "userId") int userId){
+		System.out.println(userId);
+		return userDetailsService.getUserById(userId);
+		
 	}
 	
 	@GetMapping(path="/viewAllUnapprovedUsers")

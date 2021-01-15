@@ -63,6 +63,7 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 	
 	@Override
 	public UserDetails getUserDetailsByUserId(int userId) {
+		
 		return entityManager.find(UserDetails.class, userId);
 	}
 

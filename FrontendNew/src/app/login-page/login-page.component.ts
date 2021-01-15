@@ -14,12 +14,14 @@ export class LoginPageComponent implements OnInit {
 
   constructor(private http: HttpClient,private router: Router) { }
 
-// userDashboard():void{
-//   const navigationDetails: string[] = ['/userDashboard'];
-//     this.router.navigate(navigationDetails);
-// }
-
-
+userDashboard():void{
+  const navigationDetails: string[] = ['/userDashboard'];
+    this.router.navigate(navigationDetails);
+}
+goHome():void{
+  const navigationDetails: string[] = ['/goHome'];
+  this.router.navigate(navigationDetails);
+}
 
   ngOnInit() {
   }

@@ -21,10 +21,10 @@ message:String;
   ngOnInit() {
   }
 
-  adminApproval():void{
-    const navigationDetails: string[] = ['/adminApproval'];
-    this.router.navigate(navigationDetails);
-  }
+  // adminApproval():void{
+  //   const navigationDetails: string[] = ['/adminApproval'];
+  //   this.router.navigate(navigationDetails);
+  // }
 
   loginCheck(){
     console.log(this.login);
@@ -34,7 +34,8 @@ message:String;
       if(response.status== 'SUCCESS') {
         let adminId = response.userId;
         sessionStorage.setItem('adminId',String(adminId));
-
+      
+         this.router.navigate(['adminApproval']);
       }
       else
         this.message= response.message;

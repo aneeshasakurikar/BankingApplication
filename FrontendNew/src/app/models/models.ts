@@ -1,3 +1,5 @@
+import { NgFormSelectorWarning } from "@angular/forms";
+
 export class Models {
 }
 
@@ -32,4 +34,10 @@ export class UserApprovalDetails{
 export class LoginCreds{
     public userId :number;
     public loginPassword :string;
+}
+
+export class UserAccountDetails{
+    public userId:number;
+    public accountNumber:String;
+    public balance:number;
 }

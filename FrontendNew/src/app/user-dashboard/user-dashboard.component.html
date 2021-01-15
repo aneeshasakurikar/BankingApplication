@@ -1,30 +1,47 @@
+<app-header></app-header>
 <html>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <title>User Dashboard</title>
-
+    <script>
+        function setURL(url) {
+            document.getElementById('frame').src = url;
+        }
+    </script>
 </head>
 
 <body>
 
     <br>
     <div id="menu">
-        <div id="menu-box-vertical">
+        <!--    <div id="menu-box-vertical">
             <button id="menu-button">Account details</button>
             <button id="menu-button">Fund Transfer</button>
             <button id="menu-button">Manage Beneficiaries</button>
             <button id="menu-button">Account Summary</button>
             <button id="menu-button">Account Statement</button>
-        </div>
+        </div> -->
 
         <div id="menu-horizontal">
-            <button id="menu-button">My Profile</button>
-            <button id="menu-button-horizontal">Change Password</button>
-            <button id="menu-button">Check Balance</button>
+            <a routerLink="/userDetails" target="frame"> <button id="menu-button" >My Profile</button></a>
+            <a routerLink="/accountDetails" target="frame"> <button id="menu-button">Account details</button></a>
+            <button id="menu-button">Fund Transfer</button>
+            <button id="menu-button">Manage Beneficiaries</button>
+            <button id="menu-button">Change Password</button>
+            <button id="menu-button">Log Out</button>
         </div>
+
+
     </div>
+
+    <router-outlet></router-outlet>
+    <iframe src="" height="400" width="1400" name="frame" style="margin-top: 20px;margin-left: 40px;">
+
+    </iframe>
+
 
 </body>
 
 </html>
+<app-footer></app-footer>

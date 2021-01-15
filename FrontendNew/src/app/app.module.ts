@@ -30,6 +30,9 @@ import { RtgsFormComponent } from './rtgs-form/rtgs-form.component';
 import { TransferSuccessComponent } from './transfer-success/transfer-success.component';
 import { AddBeneficiaryComponent } from './add-beneficiary/add-beneficiary.component';
 import { FundsTransferComponent } from './funds-transfer/funds-transfer.component';
+import { AccountDetailsComponent } from './account-details/account-details.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +71,13 @@ import { FundsTransferComponent } from './funds-transfer/funds-transfer.componen
 
     AddBeneficiaryComponent,
 
-    FundsTransferComponent
+    FundsTransferComponent,
+
+    AccountDetailsComponent,
+
+    HeaderComponent,
+
+    FooterComponent
 
   ],
   imports: [

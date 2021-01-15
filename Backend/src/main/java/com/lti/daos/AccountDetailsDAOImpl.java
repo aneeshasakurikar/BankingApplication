@@ -80,4 +80,10 @@ public class AccountDetailsDAOImpl implements AccountDetailsDAO {
 				.setParameter("userId", userId).executeUpdate();
 	}
 
+	@Override
+	public AccountDetails fetchAccountDetails(int userId) {
+	
+		return (AccountDetails) entityManager.createQuery(" from AccountDetails where userId=:userId").setParameter("userId",userId).getSingleResult();
+	}
+
 }
