@@ -45,10 +45,10 @@ public class TransactionController {
 		
 	}
 	
-	@GetMapping(path="/viewTransactionList")
-	private List<Transaction> viewTransactionList(@RequestBody viewTransactionListDTO object){
+	@GetMapping(path="/viewTransactionList/{accountNumber}")
+	private List<Transaction> viewTransactionList(@PathVariable(value="accountNumber") int accountNumber){
 		
-		return transactionServiceImpl.getAllTransactions(object.getAccountNumber());
+		return transactionServiceImpl.getAllTransactions(accountNumber);
 	}
 	
 }
