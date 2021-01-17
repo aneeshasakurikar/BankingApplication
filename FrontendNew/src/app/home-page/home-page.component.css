@@ -1,30 +1,23 @@
 
 #container{
     display:inline-flex;
-    height: 650px;
-    padding: 60px 76px 0px 100px;
+    width: 100%;
+    height: auto;
+    margin:auto;
     font: 20px Arial, Helvetica, sans-serif;
-    margin-left:200px;
-	margin-top:60px;
-	margin-bottom:100px;
-    border: black;
-    border-width:6px;
-    border-style:solid;
    background-image: url("/assets/images/lti_banking2.jpg");
+   
    background-repeat:no-repeat;
-   background-size:1105px 710px;
-   border-radius:15px;
+
+  
 }
 
 
 #admin{
-    width: 300px;
-    height: 170px;
-    border: black;
-    border-width:6px;
-    border-style:double;
-    border-radius:15px;
-	background-color:rgba(65, 70, 140,0.5);
+    min-width: 300px;
+    max-height: 170px;
+    margin: 5rem;
+    background-color:rgba(0,0,0,0.7);
 }
 p {
 	color:white;
@@ -36,34 +29,29 @@ button {
 	color:white;
 }
 
+#home{
+    padding: 5rem 5rem 5rem 28rem;
+}
 
 #user{
-    width: 250px;
-    height: 160px;
+    min-width: 300px;
+    max-height: 170px;
+    padding: 2rem 1rem;
     text-align: center;
     margin-left:250px;
-    margin-top: 0px;
-    border: black;
-    border-width:6px;
-    border-style:double;
-    padding: 30px 40px 20px 10px; 
+    margin-top: 0px; 
     color:white; 
-    border-radius:15px;
-	background-color:rgba(65, 70, 140,0.5);
+	background-color:rgba(0,0,0,0.7);
 }
 
 #customer{
-    width: 250px;
-    height: 160px;
+    min-width: 300px;
+    max-height: 170px;
+    padding: 2rem 1rem;
     text-align: center;
     margin-left:250px;
     margin-top: 60px;
-    border:  black;
-    border-width:6px;
-    border-style:double;  
-    padding: 30px 40px 0 10px;
     color:white;
-	border-radius:15px;
-	background-color:rgba(65, 70, 140,0.5);
+	background-color:rgba(0,0,0,0.7);
 }
 

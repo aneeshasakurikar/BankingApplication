@@ -1,12 +1,11 @@
 <app-header></app-header>
+<div class="userlogincontainer">
 <form (ngSubmit)="login()">
-    <div style="padding: 100px 0 0 250px;">
+    
         <div id="login-box">
 
             <h2 align="center">Login to your Account</h2>
 
-            <br />
-            <br />
             <div id="login-box-name" style="margin-top:20px;">User Id:</div>
             <div id="login-box-field" style="margin-top:20px;">
                 <input name="q" class="form-login" title="Username" value="" size="30" maxlength="2048" 
@@ -17,21 +16,18 @@
                 <input name="q" type="password" class="form-login" title="loginPassword" value="" size="30"
                     maxlength="2048" name="password" [(ngModel)]=loginCreds.password/>
             </div>
-            <br />
-            <br />
-            <br />
+            
             <div align="center">
                 <button id="login-button" type="submit" value="Go Home" (click)="goHome()">Home Page</button>
                     <button id="login-button" type="submit" value="Log In" (click)="userDashboard()">Login</button>
             </div>
-            <br />
+        
             <div align="center">
                <a routerLink="/register" > <p style="font-style: italic;font-weight: bolder;">First time user? Register</p></a>
                <a routerLink="/forgotId" > <p style="font-style: italic;font-weight: bolder;">Forgot User Id?</p></a>
                <a routerLink="/forgotPass"> <p style="font-style: italic;font-weight: bolder;">Forgot Password?</p></a>
             </div>
         </div>
-
-    </div>
 </form>
+</div>
 <app-footer></app-footer>

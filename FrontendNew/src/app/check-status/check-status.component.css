@@ -1,29 +1,26 @@
 #login-button {
-    margin-top:25px;
-    padding: 10px ;
-    border: 1px solid #0d2c52;
+    margin:15px;
     background-color:#1e4f8a;
-    color:#ffffff;
+	font-size:15px;
+	color:white;
     }
     
     #login-box {
-        
-        width:320px;
-        height: 333px;
-        padding: 58px 76px 0px 76px;
+        width:auto;
+        height: auto;
+        padding: 58px 76px 58px 76px;
         color: #ebebeb;
         font: 12px Arial, Helvetica, sans-serif;
-        margin-left:250px;
-        border: black;
-        border-width:6px;
-        border-style:solid;
+        margin: 0 30rem 0 30rem;
+        background-color:rgba(0,0,0,0.7);
         }
     
     #login-box h2 {
     padding:0;
-    margin:0;
-    color: #000000;
-    font: bold 44px "Calibri", Arial;
+    margin-top:0;
+    margin-bottom: 0;
+    color:white;
+    font: 44px "Calibri", Arial;
     }
     
     
@@ -31,17 +28,15 @@
     float: left;
     display:inline;
     width:80px;
-    color:#1e4f8a;
+    color:white;
     text-align: right;
     font:bold;
-    
-    font-size:14px;
+    font-size:15px;
     padding: 14px 10px 0 0;
     margin:0 0 7px 0;
     }
     
     #login-box-field {
-       
     float: left;
     display:inline;
     width:230px;
@@ -55,11 +50,16 @@
     padding: 10px 4px 6px 3px;
     border: 1px solid #0d2c52;
     background-color:#1e4f8a;
+    margin-bottom: 1rem;
     font-size: 16px;
     color: #ffffff;
     }
-    
-    
-    
-    
-    
+
+
+    .checkstatus{
+        background-image:url("/assets/images/CheckStatusBG.jpg") ;
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+        padding: 3rem 0 ;
+    }

@@ -1,61 +1,64 @@
 #login-button {
-    margin-top: 35px;
-    margin-right: 56px;
-    margin-left: 25px;
-    padding: 7px ;
-    border: 1px solid #0d2c52;
+    margin:15px;
     background-color:#1e4f8a;
-    color:#ffffff;
-    
+	font-size:15px;
+	color:white;
     }
     
     #login-box {
-        
-        width:370px;
-        height: 333px;
-        padding: 58px 76px 0px 76px;
+        width:320px;
+        height: auto;
+        padding: 58px 76px 58px 76px;
         color: #ebebeb;
         font: 12px Arial, Helvetica, sans-serif;
-        margin-left:250px;
-        border: black;
-        border-width:6px;
-        border-style:solid;
+        margin: 0 30rem 0 30rem;
+        background-color:rgba(0,0,0,0.7);
         }
     
     #login-box h2 {
     padding:0;
-    margin:0;
-    color: #000000;
-    font: bold 44px "Calibri", Arial;
+    margin-top:0;
+    margin-bottom: 0;
+    color:white;
+    font: 44px "Calibri", Arial;
     }
     
     
     #login-box-name {
     float: left;
     display:inline;
-    width:100px;
-    color:#000000;
-    text-align: rleft;
+    width:80px;
+    color:white;
+    text-align: right;
     font:bold;
-    font-size:11px;
-    padding: 14px 20px 0 0;
-    margin:0 20 7px 0;
+    font-size:15px;
+    padding: 14px 10px 0 0;
+    margin:0 0 7px 0;
     }
     
     #login-box-field {
     float: left;
     display:inline;
-    width:150px;
+    width:230px;
     margin:0;
     margin:0 0 7px 0;
     }
     
     
     .form-login {
-    width: 250px;
+    width: 205px;
     padding: 10px 4px 6px 3px;
     border: 1px solid #0d2c52;
     background-color:#1e4f8a;
+    margin-bottom: 1rem;
     font-size: 16px;
     color: #ffffff;
+    }
+
+    .forgotid{
+        background-image:url("/assets/images/Forgot.jpg") ;
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+        padding: 3rem 0 ;
     }

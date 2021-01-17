@@ -1,14 +1,12 @@
 <app-header></app-header>
+<div class="adminlogincontainer">
     <form (ngSubmit)="loginCheck()">
-        <div style="padding: 100px 0 0 250px;margin-left: 100px;">
             <div id="login-box">
 
                 <h2 align="center">Admin Login</h2>
 
-                <br />
-                <br />
-                <div id="login-box-name" style="margin-top:20px;">Admin Id:</div>
-                <div id="login-box-field" style="margin-top:20px;">
+                <div id="login-box-name" >Admin Id:</div>
+                <div id="login-box-field" >
                     <input name="q" type="number" class="form-login" title="Username" value="" size="30"
                         maxlength="2048" [(ngModel)]=login.adminId />
                 </div>
@@ -17,14 +15,11 @@
                     <input name="q" type="password" class="form-login" title="Password" value="" size="30"
                         maxlength="2048" [(ngModel)]=login.password />
                 </div>
-                <br />
-                <br />
-                <br />
+
                 <div align="center">
                     <button id="login-button" type="submit" value="submit">Log In</button>
                 </div>
-            </div>
         </div>
-
 </form>
+</div>
 <app-footer></app-footer>

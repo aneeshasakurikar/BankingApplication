@@ -60,24 +60,6 @@ public class AccountDetailsController {
 
 
 	
-
-	@PostMapping(path="/checkStatus")
-	private Status checkStatus(@RequestBody int userId) {
-		try {
-			String userStatus = accountDetailsService.checkUserStatus(userId);
-			Status status = new Status();
-			status.setStatus(StatusType.SUCCESS);
-			status.setMessage(userStatus);
-			return status;
-		}
-		catch(ServiceException e) {
-			LoginStatus status = new LoginStatus();
-			status.setStatus(StatusType.FAILED);
-			status.setMessage(e.getMessage());
-			return status;			
-		}
-	}
-	
 	@GetMapping(path="/getAccountDetails/{userId}")
 	private AccountDetails viewAccountDetails(@PathVariable(value = "userId") int userId) {
 		

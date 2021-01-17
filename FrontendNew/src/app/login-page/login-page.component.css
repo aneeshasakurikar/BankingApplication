@@ -1,30 +1,28 @@
 #login-button {
-    margin-top:25px;
-    margin-left:15px;
-    padding: 10px ;
-    border: 1px solid #0d2c52;
+    margin:15px;
     background-color:#1e4f8a;
-    color:#ffffff;
+	font-size:15px;
+	color:white;
     }
     
     #login-box {
         
         width:320px;
-        height: 380px;
-        padding: 58px 76px 0px 76px;
-        /* color: #ebebeb; */
+        height: auto;
+        padding: 58px 76px 58px 76px;
+        color: #ebebeb;
         font: 12px Arial, Helvetica, sans-serif;
-        margin-left:250px;
-        border: black;
-        border-width:6px;
-        border-style:solid;
+        margin: 0 15rem 0 61rem;
+        background-color:rgba(0,0,0,0.7);
         }
     
     #login-box h2 {
     padding:0;
-    margin:0;
-    color: #000000;
-    font: bold 30px "Calibri", Arial;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: white;
+    text-align: center;
+    font: 44px "Calibri", Arial;
     }
     
     
@@ -32,7 +30,7 @@
     float: left;
     display:inline;
     width:80px;
-    color:#000000;
+    color:#fff;
     text-align: right;
     font:bold;
     font-size:15px;
@@ -54,11 +52,14 @@
     padding: 10px 4px 6px 3px;
     border: 1px solid #0d2c52;
     background-color:#1e4f8a;
+    margin-bottom: 1rem;
     font-size: 16px;
     color: #ffffff;
     }
-    
-    
-    
-    
-    
+
+    .userlogincontainer{
+        background-image:url("/assets/images/USERLOGIN.jpg") ;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 3rem 0 
+    }
