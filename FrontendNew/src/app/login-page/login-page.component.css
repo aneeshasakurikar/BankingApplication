@@ -12,7 +12,7 @@
         padding: 58px 76px 58px 76px;
         color: #ebebeb;
         font: 12px Arial, Helvetica, sans-serif;
-        margin: 0 15rem 0 61rem;
+        margin: 0 30rem;
         background-color:rgba(0,0,0,0.7);
         }
     
@@ -33,7 +33,7 @@
     color:#fff;
     text-align: right;
     font:bold;
-    font-size:15px;
+    font-size:16px;
     padding: 14px 10px 0 0;
     margin:0 0 7px 0;
     }
@@ -58,7 +58,7 @@
     }
 
     .userlogincontainer{
-        background-image:url("/assets/images/USERLOGIN.jpg") ;
+        background-image:url("/assets/images/UserLoginBG.jpg") ;
         background-repeat: no-repeat;
         background-size: cover;
         padding: 3rem 0 

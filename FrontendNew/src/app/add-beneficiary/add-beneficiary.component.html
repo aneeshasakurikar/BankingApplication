@@ -1,42 +1,38 @@
+<app-header></app-header>
+<div class="addBen">
 <form action="loginAdmin" method="post">
-    <div style="padding: 55px 0 100px 0;" align="center">
         <div id="login-box">
 
-            <h2 align="center">Add New Beneficiary</h2>
-
-            <br />
-            <br />
-            <div id="login-box-name" style="margin-top:20px;">Beneficiary Name:</div>
-            <div id="login-box-field" style="margin-top:20px;">
-                <input name="q" class="form-login" title="Username" value="" size="30" maxlength="2048" /><br/><br/>
+            <h2 align="center" style="padding-bottom: 10px;">Add New Beneficiary</h2>
+        
+            <div id="login-box-name" >Beneficiary Full Name:</div>
+            <div id="login-box-field">
+                <input name="q" class="form-login" title="Username" value="" size="30" maxlength="2048" />
             </div>
-            <br>
+         
             <div id="login-box-name">Beneficiary Account Number:</div>
             <div id="login-box-field">
                 <input name="q" type="text" class="form-login" title="Password" value="" size="30"
                     maxlength="2048" />
             </div>
-            <br>
+           
             <div id="login-box-name">Re-Enter Account Number:</div>
             <div id="login-box-field">
                 <input name="q" type="password" class="form-login" title="Password" value="" size="30"
                     maxlength="2048" />
             </div>
-            <br>
-            <div id="login-box-name">Nick Name:</div>
+            
+            <div id="login-box-name">Nick Name (for ease of access):</div>
             <div id="login-box-field">
                 <input name="q" type="text" class="form-login" title="Password" value="" size="30"
                     maxlength="2048" />
+            </div>
 
-            
-            <br>
-            
-
-            <br />
-            <br />
-            <br />
             <div align="center">
                 <button id="login-button" type="submit" value="Log In">Save as Beneficiary</button>
             </div>
+
         </div>
-    </div>
+</form>
+</div>
+<app-footer></app-footer>

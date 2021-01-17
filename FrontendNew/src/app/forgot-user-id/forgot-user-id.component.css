@@ -6,7 +6,7 @@
     }
     
     #login-box {
-        width:320px;
+        width:380px;
         height: auto;
         padding: 58px 76px 58px 76px;
         color: #ebebeb;
@@ -27,7 +27,7 @@
     #login-box-name {
     float: left;
     display:inline;
-    width:80px;
+    width:120px;
     color:white;
     text-align: right;
     font:bold;
@@ -40,7 +40,6 @@
     float: left;
     display:inline;
     width:230px;
-    margin:0;
     margin:0 0 7px 0;
     }
     

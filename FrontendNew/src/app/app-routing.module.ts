@@ -13,6 +13,7 @@ import { ForgotUserIdComponent } from './forgot-user-id/forgot-user-id.component
 import { HomePageComponent } from './home-page/home-page.component';
 import { ImpsFormComponent } from './imps-form/imps-form.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { LogoutComponent } from './logout/logout.component';
 import { NeftFormComponent } from './neft-form/neft-form.component';
 import { NetbankingRegistrationComponent } from './netbanking-registration/netbanking-registration.component';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
@@ -50,7 +51,8 @@ const routes: Routes = [
   { path: 'neftPayment', component:NeftFormComponent },
   { path: 'addBenf', component:AddBeneficiaryComponent },
   { path: 'changePass', component:ChangePasswordComponent },
-
+  { path: 'logout', component:LogoutComponent },
+  { path: 'setPassword', component:SetNewPasswordComponent },
 
   // {path:'', component:AppComponent},
   // { path:'register', component:RegistrationPageComponent },

@@ -1,0 +1,17 @@
+.logout{
+    background-image:url("/assets/images/LogoutBG.jpg") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding:6rem ;
+}
+
+   .wrapper
+   {
+    display: flex;
+   justify-content: center;
+   margin-top: 80px;
+   color:white;
+   margin-bottom: 100px;
+
+   
+   }  

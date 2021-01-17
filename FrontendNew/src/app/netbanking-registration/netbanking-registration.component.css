@@ -6,8 +6,8 @@
     }
     
     #login-box {
-        width:320px;
-        height: 500px;
+        width:400px;
+        height: auto;
         padding: 58px 76px 58px 76px;
         color: #ebebeb;
         font: 12px Arial, Helvetica, sans-serif;
@@ -15,33 +15,30 @@
         background-color:rgba(0,0,0,0.7);
         }
     
-
     #login-box h2 {
-        padding:0;
-        margin-top:0;
-        margin-bottom: 0;
-        color:white;
-        font: 44px "Calibri", Arial;
+    padding:0;
+    margin-top:0;
+    margin-bottom: 0;
+    color:white;
+    font: 44px "Calibri", Arial;
     }
-    
     
     #login-box-name {
         float: left;
         display:inline;
-        width:80px;
+        width:120px;
         color:white;
         text-align: right;
         font:bold;
         font-size:15px;
-        padding: 14px 10px 0 0;
-        margin:0 0 7px 0;
+        padding-top: 5px;
+        margin-right: 1.5rem;
     }
     
     #login-box-field {
         float: left;
         display:inline;
         width:230px;
-        margin:0;
         margin:0 0 7px 0;
     }
     
@@ -63,9 +60,8 @@
     
     
     .netbanking{
-        background-image:url("/assets/images/NetBankingBG.jpg") ;
+        background-image:url("/assets/images/NetBankBG.jpg") ;
         background-repeat: no-repeat;
         background-size: cover;
-        
         padding: 3rem 0 ;
     }

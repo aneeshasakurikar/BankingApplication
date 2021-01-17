@@ -1,6 +1,6 @@
 #head-div {
     width:100%;
-    height: 120px;
+    height: 110px;
     background-color: #025296;
     margin: 0;
     padding: 1rem 0;
@@ -10,5 +10,6 @@
     font-size: 350%;
     font: Arial, Helvetica, sans-serif;
     text-align: center;
+    padding: 0 30rem;
 	color:white;
 }
