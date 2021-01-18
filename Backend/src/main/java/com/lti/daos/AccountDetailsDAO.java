@@ -28,5 +28,11 @@ public interface AccountDetailsDAO {
 
 	AccountDetails fetchAccountDetails(int userId);
 
+	boolean accountExists(int accountNumber);
 
+	int getAccountNumber(int userId);
+
+	void updateLoginPassword(int userId, String loginPassword);
+
+	void updateTransactionPassword(int userId, String initialTransactionPassword);
 }

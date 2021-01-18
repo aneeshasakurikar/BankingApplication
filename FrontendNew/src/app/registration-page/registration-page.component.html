@@ -1,6 +1,7 @@
+
 <app-header></app-header>
 <div class="container">
-    <form (ngSubmit)="register()">
+    <form (ngSubmit)="register()" #frm="ngForm">
           <h2 style="color:#1e4f8a;margin:auto; text-align: center; margin-bottom: 15px;">Please fill the below Registration form   </h2>
         <div class=lable>
             <label for="title"> Title <span style="color:red">*</span></label><br>
@@ -13,31 +14,108 @@
             <br>
 
             <label for="firstName">First Name<span style="color:red">*</span></label>
-            <input type="text" maxlength="25" required  pattern="[a-zA-Z][a-zA-z]+" name="firstname" size="20" id="firstName" [(ngModel)]="user.firstName" /> <br> <br>
+            <input type="text" maxlength="25" required  pattern="[a-zA-Z][a-zA-z]+" name="firstName" size="20" id="firstName" #firstName="ngModel" [(ngModel)]="user.firstName" /> <br> <br>
+            
+            <div *ngIf="firstName?.touched && firstName?.invalid" class="alert alert-danger">
+                <div *ngIf="firstName.errors?.required">
+                    Name is required
+                </div>
+                <div *ngIf="firstName.errors?.pattern">
+                    Only aplhabets
+                </div>
+                </div>
+
 
             <label>Last Name<span style="color:red">*</span></label>
-            <input type="text" maxlength="25" required  pattern="[a-zA-Z][a-zA-z]+" name="lastname" size="20" id="lastName" [(ngModel)]="user.lastName" /> <br> <br>
-            
+            <input type="text" maxlength="25" required  pattern="[a-zA-Z][a-zA-z]+" name="lastname" size="20" id="lastName" #lastName="ngModel" [(ngModel)]="user.lastName" /> <br> <br>
+            <div *ngIf="lastName?.touched && lastName?.invalid" class="alert alert-danger">
+                <div *ngIf="lastName.errors?.required">
+                    Last name is required
+                </div>
+                <div *ngIf="lastName.errors?.pattern">
+                    Only aplhabets
+                </div>
+                </div>
+
+
             <label>Middle Name</label>
             <input type="text" maxlength="25" name="middlename" size="20" id="middleName" [(ngModel)]="user.middleName" /> <br> <br>
-            
+            <div *ngIf="fatherName?.touched && fatherName?.invalid" class="alert alert-danger">
+                <div *ngIf="fatherName.errors?.pattern">
+                    Only aplhabets
+                </div>
+                </div>
+
+
             <label>Father's Name<span style="color:red">*</span></label>
-            <input type="text" maxlength="25" required  pattern="[a-zA-Z][a-zA-z]+" name="fathername" size="20" [(ngModel)]="user.fatherName" /> <br> <br>
-            
+            <input type="text" maxlength="25" required  pattern="[a-zA-Z][a-zA-z]+" name="fathername" size="20" #fatherName="ngModel" [(ngModel)]="user.fatherName" /> <br> <br>
+            <div *ngIf="fatherName?.touched && fatherName?.invalid" class="alert alert-danger">
+                <div *ngIf="fatherName.errors?.required">
+                    Father's name is required
+                </div>
+                <div *ngIf="fatherName.errors?.pattern">
+                    Only aplhabets
+                </div>
+                </div>
+
+                
             <label>Mobile Number<span style="color:red">*</span></label>
-            <input type="text" maxlength="10" required  pattern="[7-9]{1}[0-9]{9}" name="mobilenumber" size="10" [(ngModel)]="user.mobileNumber" /> <br> <br>
-            
-            <label>Email Address<span style="color:red">*</span></label>
-            <input type="text" required pattern="^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$" name="EmailID" size="20" [(ngModel)]="user.emailId" /> <br> <br>
-            
+            <input type="number" maxlength="10" minlength="10" required  pattern="[6-9]{1}[0-9]{9}" name="mobilenumber" size="10" #mob="ngModel" [(ngModel)]="user.mobileNumber" /> <br> <br>
+            <div *ngIf="mob?.touched && mob?.invalid" class="alert alert-danger">
+                <div *ngIf="mob.errors?.required">
+                    Mobile Number is required
+                </div>
+                <div *ngIf="mob.errors?.pattern">
+                    Enter valid mobile number(10 digits)
+                </div>
+                </div>
+
+
+            <label>Email Id<span style="color:red">*</span></label>
+            <input type="text" required pattern="^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$" name="EmailID" size="20" #email="ngModel" [(ngModel)]="user.emailId" /> <br> <br>
+            <div *ngIf="email?.touched && email?.invalid" class="alert alert-danger">
+                <div *ngIf="email.errors?.required">
+                    Email is required
+                </div>
+                <div *ngIf="email.errors?.pattern">
+                    Enter valid email
+                </div>
+                </div>
+
+
             <label>Aadhar Card Number<span style="color:red">*</span></label>
-            <input type="text" maxlength="12" required pattern="[0-9]+" name="AadharCardNumber" size="12" [(ngModel)]="user.aadharNumber" /> <br> <br>
-            
+            <input type="number" maxlength="12" minlength="12" required pattern=[0-9]{12} name="AadharCardNumber" size="12" #aadhar="ngModel" [(ngModel)]="user.aadharNumber" /> <br> <br>
+            <div *ngIf="aadhar?.touched && aadhar?.invalid" class="alert alert-danger">
+                <div *ngIf="aadhar.errors?.required">
+                    Aadhar Number is required
+                </div>
+                <div *ngIf="aadhar.errors?.pattern">
+                    Enter valid Aadhar Number
+                </div>
+                </div>
+
+
             <label>Date of Birth<span style="color:red">*</span></label><br>
-            <input class="dob" type="date" name="dob" size="20" [(ngModel)]="user.dateOfBirth" /> <br> <br>
+            <input class="dob" type="date" name="dob" size="20" #dob="ngModel" [(ngModel)]="user.dateOfBirth" max="2021-01-01"/> <br> <br>
+            <div *ngIf="dob?.touched && dob?.invalid" class="alert alert-danger">
+                <div *ngIf="dob.errors?.required">
+                    Date Of Birth is required
+                </div>
+                </div>
+
 
             <label>Address Line 1<span style="color:red">*</span></label>
-            <input type="text" required name="add1" size="20" [(ngModel)]="user.addressLine1" /> <br> <br>
+            <input type="text" required pattern="[a-zA-Z][a-zA-z]+" #add="ngModel" name="add1" size="20" [(ngModel)]="user.addressLine1" />
+            <div *ngIf="add?.touched && add?.invalid" class="alert alert-danger">
+                <div *ngIf="add.errors?.required">
+                    Address is required
+                </div>
+                <div *ngIf="add.errors?.pattern">
+                    Only aplhabets
+                </div>
+                </div>
+                
+                <br> <br>
            
             <label>Address Line 2</label>
             <input type="text" name="add2" size="20" [(ngModel)]="user.addressLine2" /> <br> <br>
@@ -46,13 +124,32 @@
             <input type="text" name="landmark" size="20" [(ngModel)]="user.landmark" /> <br> <br>
             
             <label>Current State<span style="color:red">*</span></label>
-            <input type="text" required pattern="[a-zA-Z][a-zA-z]+" name="state" size="20" [(ngModel)]="user.state" /> <br> <br>
+            <input type="text" required pattern="[a-zA-Z][a-zA-z]+" #st="ngModel" name="state" size="20" [(ngModel)]="user.state" /> 
+            <div *ngIf="st?.touched && st?.invalid" class="alert alert-danger">
+                <div *ngIf="st.errors?.required">
+                    State is required
+                </div>
+                <div *ngIf="st.errors?.pattern">
+                    Only aplhabets
+                </div>
+                </div>
+                <br> <br>
+
             
             <label>Current City<span style="color:red">*</span></label>
-            <input type="text" required pattern="[a-zA-Z][a-zA-z]+" name="city" size="20" [(ngModel)]="user.city" /> <br> <br>
+            <input type="text" required pattern="[a-zA-Z][a-zA-z]+" #c="ngModel" name="city" size="20" [(ngModel)]="user.city" />
+            <div *ngIf="c?.touched && c?.invalid" class="alert alert-danger">
+                <div *ngIf="c.errors?.required">
+                    City is required
+                </div>
+                <div *ngIf="c.errors?.pattern">
+                    Only aplhabets
+                </div>
+                </div>
+            <br> <br>
             
             <label>Area Pincode<span style="color:red">*</span></label>
-            <input type="text" maxlength="6" required pattern="[0-9]+" name="pincode" size="6" [(ngModel)]="user.pincode" /> <br> <br>
+            <input type="number" maxlength="6" required pattern="[0-9]{6}" name="pincode" size="6" [(ngModel)]="user.pincode" /> <br> <br>
 
             <label>Occupation Type<span style="color:red">*</span></label>
             <input type="text" name="occupation" size="20" [(ngModel)]="user.occupationType" /> <br> <br>
@@ -74,7 +171,7 @@
 
         <div class="registerbtn">
             <button type="submit" value="Submit"
-                style="color:white;background-color:#1e4f8a;font-size:25px;padding:5px 20px; border:none">Register</button>
+                style="color:white;background-color:#1e4f8a;font-size:25px;padding:5px 20px; border:none" [disabled]="!frm.valid">Register</button>
 
         </div>
     </form>

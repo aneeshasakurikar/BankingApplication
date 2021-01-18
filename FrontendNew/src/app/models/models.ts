@@ -1,5 +1,3 @@
-import { NgFormSelectorWarning } from "@angular/forms";
-
 export class Models {
 }
 
@@ -36,8 +34,48 @@ export class LoginCreds{
     public loginPassword :string;
 }
 
+export class AddTransaction{
+    public fromAccount :number;
+	public toAccount :number;
+    public amount :number;
+	public transactionPassword :string;
+    public transactionMode :string;
+    public remarks  :string;
+}
+
+export class Beneficiary{
+    public beneficiaryAccountnumber :number;
+    public userAccountnumber :number;
+    public beneficiaryName :string;
+    public beneficiaryNickname :string;
+}
+
 export class UserAccountDetails{
-    public userId:number;
+    public userId:string;
     public accountNumber:String;
     public balance:number;
+}
+
+export class NetbankingRegistration{
+    
+    public userId :number;
+    public initialLoginPassword :string;
+    public finalLoginPassword :string;
+    public initialTransactionPassword  :string;
+    public finalTransactionPassword  :string;
+}
+
+export class TransactionDetails{
+    
+    public amount :number;
+    public payeeAccountNumber :number;
+    public payerAccountNumber :number;
+    public transactionMode  :string;
+    public transactionDate  :Date;
+}
+
+export class ChangePassword{
+    
+    public userId :number;
+    public loginPassword  :string;
 }

@@ -16,5 +16,6 @@ public interface UserDetailsDAO{
 	void deleteUser(String aadharNumber);
 	UserDetails save(UserDetails userDetails);
 	int getUserId(String aadharNumber);
+	boolean doesUserIdExists(int userId);
 	
 }

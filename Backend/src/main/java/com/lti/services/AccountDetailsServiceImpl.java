@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.lti.daos.AccountDetailsDAO;
 import com.lti.daos.UserDetailsDAO;
 import com.lti.dto.AccountLogin;
+import com.lti.dto.NetBanking;
 import com.lti.entities.AccountDetails;
 
 @Service
@@ -52,20 +53,43 @@ public class AccountDetailsServiceImpl implements AccountDetailsService {
 		return accountDetailsDAO.fetchAccountDetails(userId);
 	}
 
+public void resetPassword(int userId, String loginPassword) {
+		
+		try {
+			accountDetailsDAO.updateLoginPassword(userId, loginPassword);
+		
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+	
+
+	}
+
+	public void setNetBankingPassword(NetBanking netBanking) {
+		
+		if(!accountDetailsDAO.userExist(netBanking.getUserId())) {
+			throw new ServiceException("No such Account Exists");
+		}
+		if(!accountDetailsDAO.checkCredentials(netBanking.getUserId(),netBanking.getInitialLoginPassword())) {
+			throw new ServiceException("Wrong Login Password");
+		}
+		if(!accountDetailsDAO.getTransactionPassword(accountDetailsDAO.getAccountNumber(netBanking.getUserId())).equalsIgnoreCase(netBanking.getInitialTransactionPassword())) {
+			throw new ServiceException("Wrong Transaction Password");
+		}
+		
+		accountDetailsDAO.updateLoginPassword(netBanking.getUserId(), netBanking.getFinalLoginPassword());
+		accountDetailsDAO.updateTransactionPassword(netBanking.getUserId(), netBanking.getFinalTransactionPassword());
+	
+	}
 
 
-//	@Override
-//	public String checkUserStatus(int userId) {
-//		try {
-//			
-//			if(userDetailsDAO.getStatus(userId)) {
-//				return "Approved";
-//			}
-//			return "Waiting for admin approval";
-//		} catch (Exception e) {
-//			throw new ServiceException("Incorrect email/password");
-//		}
-//
+
+//	public void sendUserId(int accountNumber) {
+//		
+//		accountDetailsDAO.
+//		
 //	}
+
 
 }

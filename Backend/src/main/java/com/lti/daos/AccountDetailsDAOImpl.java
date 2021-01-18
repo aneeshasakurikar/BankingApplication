@@ -81,12 +81,12 @@ public class AccountDetailsDAOImpl implements AccountDetailsDAO {
 	}
 
 	@Override
-
 	public AccountDetails fetchAccountDetails(int userId) {
 	
 		return (AccountDetails) entityManager.createQuery(" from AccountDetails where userId=:userId")
 				.setParameter("userId",userId).getSingleResult();
 	}
+	
 	public String getTransactionPassword(int accountNumber) {
 		
 		return (String) entityManager.createQuery("select transactionPassword from AccountDetails where accountNumber = :accountNumber ")
@@ -108,6 +108,36 @@ public class AccountDetailsDAOImpl implements AccountDetailsDAO {
 		.setParameter("curBalance", curBalance).setParameter("fromAccount", fromAccount).executeUpdate();
 		
 
+	}
+	
+	@Override
+	public boolean accountExists(int accountNumber) {
+		return  (Long)entityManager
+				.createQuery("select count(ad.accountNumber) from AccountDetails ad where ad.accountNumber = :accountNumber")
+				.setParameter("accountNumber", accountNumber).getSingleResult() == 1 ? true : false;
+	}
+
+	@Override
+	public int getAccountNumber(int userId) {
+		System.out.println("1");
+		return (int) entityManager.createQuery("select accountNumber from AccountDetails where userId=:userId").setParameter("userId", userId)
+				.getSingleResult();
+	}
+
+	@Override
+	@Transactional
+	public void updateLoginPassword(int userId, String loginPassword) {
+		
+		entityManager.createQuery("update AccountDetails set loginPassword=:loginPassword where userId=:userId")
+			.setParameter("loginPassword", loginPassword).setParameter("userId", userId).executeUpdate();
+		
+	}
+
+	@Override
+	@Transactional
+	public void updateTransactionPassword(int userId, String initialTransactionPassword) {
+		entityManager.createQuery("update AccountDetails set transactionPassword=:transactionPassword where userId=:userId")
+		.setParameter("transactionPassword", initialTransactionPassword).setParameter("userId", userId).executeUpdate();
 	}
 
 }

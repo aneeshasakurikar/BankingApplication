@@ -30,7 +30,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 	private MailSender emailSender;
 	
 	@Override
-	public void registerUser(UserDetails userDetails) {
+	public int registerUser(UserDetails userDetails) {
 		if(userDetailsDAO.isUserPresent(userDetails.getAadharNumber())) {
 			throw new ServiceException("User already registered!");
 		}
@@ -47,6 +47,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 			userDetailsDAO.save(userDetails);
 			
 		}
+		return userDetailsDAO.getUserId(userDetails.getAadharNumber());
 	}
 	
 	@Override
@@ -77,10 +78,6 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 				System.out.println("pass set");
 				accountDetailsDAO.saveAccountDetails(accountNumber, userDetailsDAO.getUserId(updatedStatus.getAadharNumber()), loginPassword, transactionPassword);
 				
-//				AccountDetails accountDetails = new AccountDetails();
-//				accountDetails.setAccountNumber(accountNumber);
-//				accountDetails.setUserId(userDetailsDAO.getUserId(updatedStatus.getAadharNumber()));
-//				accountDetailsDAO.save(accountDetails);
 				message.setText("Your Application to open an account at our bank is accepted. Your Account Number is: "+accountNumber+". Login Password: "+ loginPassword
 						+". Transaction Password: "+transactionPassword);
 				emailSender.send(message);
@@ -137,6 +134,17 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 		catch(Exception e) {
 			throw new ServiceException("Error !!!");
 		}
+	}
+	
+	@Override
+	public String checkUserStatus(int userId) {
+		
+		if(!userDetailsDAO.doesUserIdExists(userId)) {
+			throw new ServiceException("no such userId exists");
+		}
+		if(userDetailsDAO.isUserApproved(userId))
+			return "approved";
+		return "waiting for approval";
 	}
 
 

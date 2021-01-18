@@ -21,6 +21,9 @@ import { RtgsFormComponent } from './rtgs-form/rtgs-form.component';
 import { SetNewPasswordComponent } from './set-new-password/set-new-password.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { FundsTransferComponent } from './funds-transfer/funds-transfer.component';
+import { AccountSummaryComponent } from './account-summary/account-summary.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 const routes: Routes = [
   // {path:'set-pass',component:SetNewPasswordComponent}
@@ -28,17 +31,10 @@ const routes: Routes = [
 
   {path:'', component:HomePageComponent},
 
-
-  // {path:'', component:RegistrationPageComponent}
-
-
-  //{path:'', component:AppComponent},
   {  path:'adminLogin', component:AdminLoginComponent},
-  {  path:'adminLogout', component:HomePageComponent},
   {  path:'userLogin', component:LoginPageComponent},
   {  path:'userDetails', component:UserDetailsComponent},
   {  path:'accountDetails', component:AccountDetailsComponent},
-  {  path:'goHome', component:HomePageComponent},
   {  path:'netBankRegister', component:NetbankingRegistrationComponent},
   {  path:'adminApproval', component:AdminApprovalComponent},
   {  path:'userDashboard', component:UserDashboardComponent},
@@ -49,10 +45,14 @@ const routes: Routes = [
   { path: 'rtgsPayment', component:RtgsFormComponent },
   { path: 'impsPayment', component:ImpsFormComponent },
   { path: 'neftPayment', component:NeftFormComponent },
-  { path: 'addBenf', component:AddBeneficiaryComponent },
-  { path: 'changePass', component:ChangePasswordComponent },
+  { path: 'addBeneficiary', component:AddBeneficiaryComponent },
+  { path: 'changePassword', component:ChangePasswordComponent },
   { path: 'logout', component:LogoutComponent },
   { path: 'setPassword', component:SetNewPasswordComponent },
+  { path: 'fundsTransfer', component:FundsTransferComponent },
+  { path: 'accountSummary', component:AccountSummaryComponent },
+  { path: 'welcome', component:WelcomePageComponent }
+
 
   // {path:'', component:AppComponent},
   // { path:'register', component:RegistrationPageComponent },

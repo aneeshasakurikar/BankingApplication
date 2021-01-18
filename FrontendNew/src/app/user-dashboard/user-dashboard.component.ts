@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -7,12 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-dashboard.component.css']
 })
 export class UserDashboardComponent implements OnInit {
-
-  constructor() { }
+  userId
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
-
+  logout(){
+    //this.userId = sessionStorage.getItem('userId');
+    sessionStorage.removeItem('userId');
+    this.router.navigate(['logout']);
+  }
   
 
 }

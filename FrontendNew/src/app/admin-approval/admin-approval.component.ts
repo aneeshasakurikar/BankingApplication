@@ -27,13 +27,8 @@ this.location.onPopState(() => {
   }
 
 
-  approve(){
-
-  }
-
   adminLogout():void{
-    const navigationDetails: string[] = ['/adminLogout'];
-    this.router.navigate(navigationDetails);
+    this.router.navigate(['']);
   }
 
   ngOnInit() {

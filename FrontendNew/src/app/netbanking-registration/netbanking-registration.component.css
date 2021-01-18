@@ -65,3 +65,7 @@
         background-size: cover;
         padding: 3rem 0 ;
     }
+
+    .alert {
+        color: red;
+      }

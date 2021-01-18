@@ -14,7 +14,7 @@
 <body>
 
     <br>
-    <div id="menu">
+    <div id="menu" align="center">
         <!--    <div id="menu-box-vertical">
             <button id="menu-button">Account details</button>
             <button id="menu-button">Fund Transfer</button>
@@ -23,20 +23,22 @@
             <button id="menu-button">Account Statement</button>
         </div> -->
 
-        <div id="menu-horizontal">
+        <div id="menu-horizontal" >
             <a routerLink="/userDetails" target="frame"> <button id="menu-button" >My Profile</button></a>
             <a routerLink="/accountDetails" target="frame"> <button id="menu-button">Account details</button></a>
-            <button id="menu-button">Fund Transfer</button>
-            <button id="menu-button">Manage Beneficiaries</button>
-            <button id="menu-button">Change Password</button>
-            <button id="menu-button">Log Out</button>
+            <a routerLink="/accountSummary" target="frame"> <button id="menu-button">Account Summary</button></a>
+            <a routerLink="/neftPayment" target="frame"> <button id="menu-button">Fund Transfer</button></a>
+            <a routerLink="/addBeneficiary" target="frame"> <button id="menu-button">Add Beneficiaries</button></a>
+            <a routerLink="/changePassword" target="frame"> <button id="menu-button">Change Password</button></a>
+            
+            <a target="frame"> <button id="menu-button" (click)="logout()">Log Out</button></a>
         </div>
 
 
     </div>
 
     <router-outlet></router-outlet>
-    <iframe src="" height="400" width="1400" name="frame" style="margin-top: 20px;margin-left: 40px;">
+    <iframe src="/welcome" height="400" width="1400" name="frame" style="margin-top: 20px;margin-left: 40px;">
 
     </iframe>
 

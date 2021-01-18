@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { TransactionDetails } from '../models/models';
 
 @Component({
   selector: 'app-account-summary',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountSummaryComponent implements OnInit {
 
-  constructor() { }
+  transactionDetails;
+  
+  constructor(private http: HttpClient,private router:Router) { }
 
-  ngOnInit() {
+  ngOnInit():void {
+      this.http.get<any>("http://localhost:8084/viewTransactionList/"+sessionStorage.getItem('userId'))
+      .subscribe(data=>{
+        console.log(data)
+        this.transactionDetails = data;
+      })
+    
   }
 
 }

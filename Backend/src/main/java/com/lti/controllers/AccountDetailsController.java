@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.dto.AccountLogin;
+import com.lti.dto.ForgotLoginPasswordDTO;
+import com.lti.dto.ForgotUserIdDTO;
+import com.lti.dto.NetBanking;
 import com.lti.entities.AccountDetails;
 import com.lti.services.AccountDetailsServiceImpl;
 import com.lti.status.LoginStatus;
@@ -26,20 +29,6 @@ public class AccountDetailsController {
 	@PostMapping(path = "/login")
 	public LoginStatus login(@RequestBody AccountLogin accountLogin) {
 
-//		try {
-//			AccountDetails accountDetails = accountDetailsService.accountLogin(accountLogin.getUserId(), accountLogin.getPassword());
-//			AccountLoginStatus status = new AccountLoginStatus();
-//			status.setStatus(StatusType.SUCCESS);
-//			status.setMessage("Login Successful!");
-//			status.setCustomerId(customer.getId());
-//			status.setCustomerName(customer.getName());
-//			return status;
-//		} catch (CustomerServiceException e) {
-//			LoginStatus status = new LoginStatus();
-//			status.setStatus(StatusType.FAILED);
-//			status.setMessage(e.getMessage());
-//			return status;
-//		}
 		
 		try {
 			boolean res = accountDetailsService.loginUser(accountLogin);
@@ -59,40 +48,76 @@ public class AccountDetailsController {
 	}
 
 
+	@PostMapping(path = "/netBanking")
+	public Status netBanking(@RequestBody NetBanking netBanking) {
+		
+		try {
+			accountDetailsService.setNetBankingPassword(netBanking);
+			Status status = new Status();
+			status.setStatus(StatusType.SUCCESS);
+			status.setMessage("Password Changed Successfully!");
+			return status;
+		}
+		catch(ServiceException e) {
+			LoginStatus status = new LoginStatus();
+			status.setStatus(StatusType.FAILED);
+			status.setMessage(e.getMessage());
+			return status;			
+		}
+
+	}
+
 	
 	@GetMapping(path="/getAccountDetails/{userId}")
-	private AccountDetails viewAccountDetails(@PathVariable(value = "userId") int userId) {
-		
-		return accountDetailsService.getAccountDetails(userId);
+	private AccountDetails viewAccountDetails(@PathVariable(value = "userId") String userId) {
+		int intUserId = Integer.parseInt(userId);
+		return accountDetailsService.getAccountDetails(intUserId);
 		
 	}
 
-//	@PostMapping(path="/checkStatus")
-//	private Status checkStatus(@RequestBody int userId) {
+
+	@PostMapping(path="/forgetLoginPassword")
+	private Status forgetPassword(@RequestBody ForgotLoginPasswordDTO forgotLoginPasswordDTO) {
+		Status status = new Status();
+		try {
+		int userId = (int)Integer.parseInt(forgotLoginPasswordDTO.getUserId());
+		accountDetailsService.resetPassword(userId,forgotLoginPasswordDTO.getLoginPassword());
+		
+		status.setStatus(StatusType.SUCCESS);
+		status.setMessage("Password Change Successful");
+		
+		return status;
+		}
+		catch(ServiceException e) {
+			
+			status.setStatus(StatusType.FAILED);
+			status.setMessage(e.getMessage());
+			
+			return status;
+		}
+	}
+	
+//	@PostMapping(path="/forgetUserId")
+//	private Status forgetUserId(@RequestBody ForgotUserIdDTO forgotUserIdDTO) {
+//		Status status = new Status();
 //		try {
-//			String userStatus = accountDetailsService.checkUserStatus(userId);
-//			Status status = new Status();
-//			status.setStatus(StatusType.SUCCESS);
-//			status.setMessage(userStatus);
+//		accountDetailsService.sendUserId(forgotUserIdDTO.getAccountNumber());
+//		
+//		status.setStatus(StatusType.SUCCESS);
+//		status.setMessage("Password Change Successful");
+//		
+//		return status;
 //		}
 //		catch(ServiceException e) {
-//			LoginStatus status = new LoginStatus();
+//			
 //			status.setStatus(StatusType.FAILED);
 //			status.setMessage(e.getMessage());
-//			return status;			
+//			
+//			return status;
 //		}
 //	}
 
+	
 
-
-	@PostMapping(path = "/forgotLoginPassword")
-	private void forgotPassword() {
-
-	}
-
-	@PostMapping(path = "/forgotTransactionPassword")
-	private void forgotTransactionPassword() {
-
-	}
 
 }

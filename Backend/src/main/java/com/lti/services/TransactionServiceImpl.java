@@ -33,22 +33,24 @@ public class TransactionServiceImpl implements TransactionService{
 	@Autowired
 	AccountDetailsDAO accountdetailsDAO;
 	
-	public List<Transaction> getAllTransactions(int accountNumber) {
-		
+	public List<Transaction> getAllTransactions(int userId) {
+		int accountNumber = accountdetailsDAO.getAccountNumber(userId);
 		return transactionDAO.getAllTransactions(accountNumber);
 	}
 
 	
 	@Override
 	public void transaction(TransactionDTO transactionDetails) {
-		// TODO Auto-generated method stub
-		Transaction transaction = new Transaction();
+		if(!accountdetailsDAO.accountExists(transactionDetails.getFromAccount())) {
+			throw new ServiceException("enter Valid Account Number");
+		}
 		String actualTnPassword =  accountdetailsDAO.getTransactionPassword(transactionDetails.getFromAccount());
+		System.out.println("5");
 		System.out.println(transactionDetails.getTransactionPassword());
 		if(!actualTnPassword.equals(transactionDetails.getTransactionPassword())) {
 			throw new ServiceException("Invalid Transaction Password");
 		}
-		if(!beneficiaryDAO.userExsit(transactionDetails.getFromAccount(),transactionDetails.getToAccount())) {
+		if(!beneficiaryDAO.userExsit(transactionDetails.getToAccount(),transactionDetails.getFromAccount())) {
 			throw new ServiceException("Benificiary not Found");
 		}
 		if(transactionDetails.getAmount()<=0) {
@@ -56,16 +58,17 @@ public class TransactionServiceImpl implements TransactionService{
 		}
 		WithdrawBalance(transactionDetails.getFromAccount(),transactionDetails.getAmount());
 		DepositBalance(transactionDetails.getToAccount(),transactionDetails.getAmount());
-		
+		Transaction transaction = new Transaction();
 		transaction.setPayerAccountNumber(transactionDetails.getFromAccount());
 		transaction.setPayeeAccountNumber(transactionDetails.getToAccount());
 		transaction.setTransactionMode(transactionDetails.getTransactionMode());
 		transaction.setAmount(transactionDetails.getAmount());
 		
-		//DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
 		LocalDate now = LocalDate.now();
 		
 		transaction.setDateOfTransaction(now);
+		transaction.setRemarks(transactionDetails.getRemarks());
+		transactionDAO.save(transaction);
 	}
 	private void DepositBalance(int toAccount, int amount) {
 		// TODO Auto-generated method stub

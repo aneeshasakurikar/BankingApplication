@@ -9,4 +9,5 @@ import com.lti.entities.Transaction;
 public interface TransactionDAO {
 
 	List<Transaction> getAllTransactions(int accountNumber);
+	void save(Transaction transaction);
 }

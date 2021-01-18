@@ -85,4 +85,10 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 				.setParameter("aadharNumber", aadharNumber).getSingleResult();
 	}
 
+	@Override
+	public boolean doesUserIdExists(int userId) {
+		return (long) entityManager.createQuery("select count(userId) from UserDetails where userId =:userId").setParameter("userId", userId)
+				.getSingleResult() == 1?true:false;
+	}
+	
 }

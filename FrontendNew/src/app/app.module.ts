@@ -33,6 +33,7 @@ import { FundsTransferComponent } from './funds-transfer/funds-transfer.componen
 import { AccountDetailsComponent } from './account-details/account-details.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,9 @@ import { FooterComponent } from './footer/footer.component';
 
     HeaderComponent,
 
-    FooterComponent
+    FooterComponent,
+
+    WelcomePageComponent
 
   ],
   imports: [

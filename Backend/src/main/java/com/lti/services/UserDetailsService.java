@@ -14,10 +14,11 @@ public interface UserDetailsService {
 	 * ViewUserDetails userDetails(int userId);
 	 */
 	
-	public void registerUser(UserDetails user);
+	public int registerUser(UserDetails user);
 	public UserDetails getUserById(int userId);
 	public List<UserDetails> getAllUsers();
 	void updateUserStatus(UpdateUserStatus status);
 	//String getEmail(String aadharNumber);
 	int getAccountNumber(String aadharNumber);
+	String checkUserStatus(int userId);
 }

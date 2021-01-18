@@ -1,1 +1,26 @@
-<p>account-summary works!</p>
+
+
+<div align="center">
+  <H2>Transaction History</H2>
+    <table class="table table-secondary" id="customers">
+        <thead class="thead-dark">
+          <tr>
+            <th  scope="col">From Account</th>
+            <th  scope="col">To Account</th>
+            <th  scope="col">Transaction Amount</th>
+            <th  scope="col">Transaction Mode</th>
+            <th scope="col">Transaction Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let details of transactionDetails">
+            <td  scope="col">{{details.payerAccountNumber}}</td>
+            <td  scope="col">{{details.payeeAccountNumber}}</td>
+            <td  scope="col">{{details.amount}}</td>
+              <td  scope="col">{{details.transactionMode}}</td>
+            <td  scope="col">{{details.dateOfTransaction}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
