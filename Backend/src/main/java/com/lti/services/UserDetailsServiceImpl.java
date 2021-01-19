@@ -31,6 +31,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 	
 	@Override
 	public int registerUser(UserDetails userDetails) {
+		System.out.println(userDetails.getAadharNumber());
 		if(userDetailsDAO.isUserPresent(userDetails.getAadharNumber())) {
 			throw new ServiceException("User already registered!");
 		}
@@ -47,7 +48,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 			userDetailsDAO.save(userDetails);
 			
 		}
-		return userDetailsDAO.getUserId(userDetails.getAadharNumber());
+		return userDetailsDAO.getReferenceId(userDetails.getAadharNumber());
 	}
 	
 	@Override
@@ -65,28 +66,31 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 				message.setTo( userDetailsDAO.getUserEmailByAadharNumber(updatedStatus.getAadharNumber()));
 				message.setSubject("Application Approved");
 				int accountNumber;
+				int userId;
 				if(accountDetailsDAO.numOfUser()==0) {
-					accountNumber = 323001;
+					accountNumber = 5005001;
+					userId = 123001;
 				}
 				else {
 					accountNumber = accountDetailsDAO.getLastAccountNumber()+1;
+					userId = accountDetailsDAO.getLastUserId()+1;
 				}
-				String loginChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~`!@#$%^&*()-_=+[{]}\\|;:\'\",<.>/?";
-				String transactionChar = "1234";
-				String loginPassword = RandomStringUtils.random( 15, loginChar);
-				String transactionPassword = RandomStringUtils.random( 4, transactionChar);
-				System.out.println("pass set");
-				accountDetailsDAO.saveAccountDetails(accountNumber, userDetailsDAO.getUserId(updatedStatus.getAadharNumber()), loginPassword, transactionPassword);
 				
-				message.setText("Your Application to open an account at our bank is accepted. Your Account Number is: "+accountNumber+". Login Password: "+ loginPassword
-						+". Transaction Password: "+transactionPassword);
+//				String loginChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~`!@#$%^&*()-_=+[{]}\\|;:\'\",<.>/?";
+//				String transactionChar = "1234567890";
+//				String loginPassword = RandomStringUtils.random( 15, loginChar);
+//				String transactionPassword = RandomStringUtils.random( 4, transactionChar);
+				accountDetailsDAO.saveAccountDetails(accountNumber, userId, userDetailsDAO.getReferenceId(updatedStatus.getAadharNumber()));
+				
+				message.setText("Your Application to open an account at our bank is accepted. Your Account Number is: "+accountNumber+". "
+						+ "You can Register for net Banking using your account Number, post which you'll get your userId.");
 				emailSender.send(message);
 			}
 			else {
 				SimpleMailMessage message = new SimpleMailMessage();
 				message.setFrom("contact.ltibankingservices@gmail.com");
 				message.setTo( userDetailsDAO.getUserEmailByAadharNumber(updatedStatus.getAadharNumber()));
-				message.setSubject("Application Approved");
+				//message.setSubject("Application Approved");
 				message.setSubject("Application Rejected");				
 				message.setText("Your Application to open an account at our bank is rejected. Please try again with valid details");
 				System.out.println("abt to send mail");
@@ -106,14 +110,25 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 	}
 	
 	@Override
-	public UserDetails getUserById(int userId) {
-		try {
-				return userDetailsDAO.getUserDetailsByUserId(userId);
-			}
-			catch (NullPointerException e) {
-				throw new ServiceException("");
-			}
+	public String checkUserStatus(int referenceId) {
+		
+		if(!userDetailsDAO.doesReferenceIdExists(referenceId)) {
+			throw new ServiceException("no such ReferenceId exists");
+		}
+		if(userDetailsDAO.isUserApproved(referenceId))
+			return "approved";
+		return "waiting for approval";
 	}
+	
+//	@Override
+//	public UserDetails getUserById(int userId) {
+//		try {
+//				return userDetailsDAO.getUserDetailsByUserId(userId);
+//			}
+//			catch (NullPointerException e) {
+//				throw new ServiceException("");
+//			}
+//	}
 
 //	@Override
 //	public String getEmail(String aadharNumber) {
@@ -136,16 +151,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 		}
 	}
 	
-	@Override
-	public String checkUserStatus(int userId) {
-		
-		if(!userDetailsDAO.doesUserIdExists(userId)) {
-			throw new ServiceException("no such userId exists");
-		}
-		if(userDetailsDAO.isUserApproved(userId))
-			return "approved";
-		return "waiting for approval";
-	}
+	
 
 
 

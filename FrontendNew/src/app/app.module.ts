@@ -34,6 +34,7 @@ import { AccountDetailsComponent } from './account-details/account-details.compo
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NoopAnimationsModule
 
   ],
   providers: [],

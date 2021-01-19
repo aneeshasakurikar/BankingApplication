@@ -1,16 +1,16 @@
 package com.lti.dto;
 
-public class NetBanking {
-	int accountNumber;
+public class SetNewPasswordDTO {
+	String userId;
 	String loginPassword;
 	String transactionPassword;
 
-	public int getAccountNumber() {
-		return accountNumber;
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setAccountNumber(int accountNumber) {
-		this.accountNumber = accountNumber;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public String getLoginPassword() {

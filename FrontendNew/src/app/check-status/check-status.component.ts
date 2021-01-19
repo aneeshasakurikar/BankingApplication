@@ -8,14 +8,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./check-status.component.css']
 })
 export class CheckStatusComponent implements OnInit {
-  userId;
+  refId;
   constructor(private http: HttpClient,private router:Router) { }
 
   ngOnInit() {
   }
   checkStatus(){
-    console.log(this.userId)
-    this.http.get<any>("http://localhost:8084/checkStatus/"+this.userId)
+    console.log(this.refId)
+    this.http.get<any>("http://localhost:8084/checkStatus/"+this.refId)
       .subscribe(response=>{
         alert(JSON.stringify(response.message));
       })

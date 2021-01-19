@@ -21,38 +21,84 @@ public class AccountDetailsDAOImpl implements AccountDetailsDAO {
 	}
 
 	@Override
+	public long numOfUser() {
+		return (long) entityManager.createQuery("select count(*) from AccountDetails").getSingleResult();
+	}
+
+	
+	@Override
 	public int getLastAccountNumber() {
 		return (int) entityManager.createQuery("select max(ad.accountNumber) from AccountDetails ad").getSingleResult();
 	}
 
 	@Override
-	public long numOfUser() {
-		return (long) entityManager.createQuery("select count(*) from AccountDetails").getSingleResult();
+	public int getLastUserId() {
+		return (int) entityManager.createQuery("select max(ad.userId) from AccountDetails ad").getSingleResult();
 	}
-
+	
+	
 	@Override
 	@Transactional
-	public void saveAccountDetails(int accountNumber, int userId, String loginPassword, String transactionPassword) {
+	public void saveAccountDetails(int accountNumber, int userId, int referenceId) {
 		AccountDetails accountDetails = new AccountDetails();
 		System.out.println("obj created");
 		accountDetails.setAccountNumber(accountNumber);
 		System.out.println("acc num set");
 		accountDetails.setUserId(userId);
 		System.out.println("user id set");
-		accountDetails.setLoginPassword(loginPassword);
-		System.out.println("pass set1");
-		accountDetails.setTransactionPassword(transactionPassword);
+		accountDetails.setReferenceId(referenceId);
 		System.out.println("pass set2");
 		entityManager.merge(accountDetails);
 		System.out.println("merged");
 	}
 
 	@Override
+	public boolean accountExists(int accountNumber) {
+		return  (Long)entityManager
+				.createQuery("select count(ad.accountNumber) from AccountDetails ad where ad.accountNumber = :accountNumber")
+				.setParameter("accountNumber", accountNumber).getSingleResult() == 1 ? true : false;
+	}
+	
+	@Override
+	@Transactional
+	public void saveNewNetBanking(int accountNumber, String loginPassword, String transactionPassword) {
+		
+		entityManager.createQuery("update AccountDetails set loginPassword=:loginPassword, transactionPassword=:transactionPassword where accountNumber=:accountNumber")
+		.setParameter("loginPassword", loginPassword).setParameter("transactionPassword", transactionPassword).setParameter("accountNumber", accountNumber).executeUpdate();
+		System.out.println("executed");
+		
+	}
+	
+	@Override
+	public int getUserId(int accountNumber) {
+		return (int)entityManager.createQuery("select userId from AccountDetails where accountNumber=:accountNumber").setParameter("accountNumber", accountNumber)
+				.getSingleResult();
+	}
+	
+	@Override
+	public int getReferenceId(int accountNumber) {
+		return (int)entityManager.createQuery("select referenceId from AccountDetails where accountNumber=:accountNumber").setParameter("accountNumber", accountNumber)
+				.getSingleResult();
+	}
+	
+	@Override
+	public String firstRegistration(int accountNumber) {
+		return (String) entityManager.createQuery("select loginPassword from AccountDetails where accountNumber=:accountNumber").setParameter("accountNumber", accountNumber)
+				.getSingleResult();
+	}
+	
+	@Override
 	public boolean userExist(int userId) {
 		System.out.println("dao user exist");
 		return (Long) entityManager
 				.createQuery("select count(ad.userId) from AccountDetails ad where ad.userId = :userId")
 				.setParameter("userId", userId).getSingleResult() == 1 ? true : false;
+	}
+	
+	@Override
+	public int getReferenceIdByUserId(int intUserId) {
+		return (int)entityManager.createQuery("select referenceId from AccountDetails where userId=:intUserId").setParameter("intUserId", intUserId)
+				.getSingleResult();
 	}
 
 	@Override
@@ -110,12 +156,7 @@ public class AccountDetailsDAOImpl implements AccountDetailsDAO {
 
 	}
 	
-	@Override
-	public boolean accountExists(int accountNumber) {
-		return  (Long)entityManager
-				.createQuery("select count(ad.accountNumber) from AccountDetails ad where ad.accountNumber = :accountNumber")
-				.setParameter("accountNumber", accountNumber).getSingleResult() == 1 ? true : false;
-	}
+	
 
 	@Override
 	public int getAccountNumber(int userId) {
@@ -139,5 +180,14 @@ public class AccountDetailsDAOImpl implements AccountDetailsDAO {
 		entityManager.createQuery("update AccountDetails set transactionPassword=:transactionPassword where userId=:userId")
 		.setParameter("transactionPassword", initialTransactionPassword).setParameter("userId", userId).executeUpdate();
 	}
+
+	
+	
+
+	
+
+	
+
+	
 
 }

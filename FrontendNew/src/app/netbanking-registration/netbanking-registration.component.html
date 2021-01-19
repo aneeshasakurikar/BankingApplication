@@ -7,7 +7,7 @@
 
             <div id="login-box-name" >Account Number: </div>
             <div id="login-box-field" >
-                <input name="accNo" class="form-login"  required pattern="[0-9]{6}" title="Username" value=""  #accNo="ngModel" [(ngModel)]="credentials.userId"/>
+                <input name="accNo" class="form-login"  required pattern="[0-9]{7}" title="Username" value=""  #accNo="ngModel" [(ngModel)]="credentials.accountNumber"/>
                 <div *ngIf="accNo?.touched && accNo?.invalid" class="alert alert-danger">
                     <div *ngIf="accNo.errors?.required">
                         Account Number is required
@@ -18,10 +18,10 @@
                     </div>
             </div>
 
-            <div id="login-box-name">Initial Login Password: </div>
+            <div id="login-box-name">Set Login Password: </div>
             <div id="login-box-field">
                 <input name="lpass" type="password" required pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}" class="form-login" #lp="ngModel" title="Password" value="" size="30"
-                    maxlength="2048" [(ngModel)]="credentials.initialLoginPassword"/>
+                    maxlength="2048" [(ngModel)]="credentials.loginPassword"/>
                     <div *ngIf="lp?.touched && lp?.invalid" class="alert alert-danger">
                         <div *ngIf="lp.errors?.required">
                             Login Password is required
@@ -34,10 +34,10 @@
                 </div>
             
 
-            <div id="login-box-name">New Login Password: </div>
+            <div id="login-box-name">Confirm Login Password: </div>
             <div id="login-box-field">
                 <input name="lpassc" type="password" required pattern="{{ lp.value }}" #lpc="ngModel" class="form-login" title="Password" value="" size="30"
-                    maxlength="2048" [(ngModel)]="credentials.finalLoginPassword"/>
+                    maxlength="2048" ngModel/>
             
             <div *ngIf="lpc?.touched && lpc?.invalid" class="alert alert-danger">
                 <div *ngIf="lpc.errors?.required">
@@ -50,10 +50,10 @@
         </div>
 
             <br/>
-            <div id="login-box-name">Initial Transaction Password: </div>
+            <div id="login-box-name">Set Transaction Password: </div>
             <div id="login-box-field">
                 <input name="tpass" type="password" required pattern="[0-9]{4}" #tp="ngModel" class="form-login" title="Password" value="" size="30"
-                    maxlength="2048" [(ngModel)]="credentials.initialTransactionPassword"/>
+                    maxlength="2048" [(ngModel)]="credentials.transactionPassword"/>
             
             <div *ngIf="tp?.touched && tp?.invalid" class="alert alert-danger">
                 <div *ngIf="tp.errors?.required">
@@ -66,10 +66,10 @@
             </div>
         </div>
 
-            <div id="login-box-name">New Transaction Password: </div>
+            <div id="login-box-name">Confirm Transaction Password: </div>
             <div id="login-box-field">
                 <input name="tpassc" type="password" required pattern="{{ tp.value }}" class="form-login" #tpc="ngModel" title="Password" value="" size="30"
-                    maxlength="2048" [(ngModel)]="credentials.finalTransactionPassword"/>
+                    maxlength="2048" ngModel/>
             
             <div *ngIf="tpc?.touched && tpc?.invalid" class="alert alert-danger">
                 <div *ngIf="tpc.errors?.required">

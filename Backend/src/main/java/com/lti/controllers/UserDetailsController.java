@@ -35,10 +35,10 @@ public class UserDetailsController {
 	@PostMapping(path = "/register")
 	public @ResponseBody Status register(@RequestBody UserDetails user) {
 		try {
-			int userId = userDetailsService.registerUser(user);
+			int refId = userDetailsService.registerUser(user);
 			Status status = new Status();
 			status.setStatus(StatusType.SUCCESS);
-			status.setMessage("Registration Successful! Wait for Admin Approval. Your UserId is: " + userId);
+			status.setMessage("Registration Successful! Wait for Admin Approval. Your ReferenceId is: " + refId);
 			return status;
 		} catch (ServiceException e) {
 			Status status = new Status();
@@ -59,12 +59,7 @@ public class UserDetailsController {
 
 	}
 	
-	@GetMapping(path="/viewDetails/{userId}")
-	public UserDetails viewUserDetails(@PathVariable(value = "userId") int userId){
-		System.out.println(userId);
-		return userDetailsService.getUserById(userId);
-		
-	}
+	
 	
 	@GetMapping(path="/viewAllUnapprovedUsers")
 	public List<UserDetails> viewAllUnapprovedUsers() 
@@ -94,11 +89,11 @@ public class UserDetailsController {
 	}
 	
 
-	@GetMapping(path="/checkStatus/{userId}")
-	private Status checkStatus(@PathVariable(value="userId") int userId) {
+	@GetMapping(path="/checkStatus/{referenceId}")
+	private Status checkStatus(@PathVariable(value="referenceId") int referenceId) {
 		try {
 			Status status = new Status();
-			String userStatus = userDetailsService.checkUserStatus(userId);
+			String userStatus = userDetailsService.checkUserStatus(referenceId);
 			status.setStatus(StatusType.SUCCESS);
 			status.setMessage(userStatus);
 			return status;

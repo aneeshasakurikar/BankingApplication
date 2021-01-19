@@ -15,7 +15,7 @@ public interface UserDetailsService {
 	 */
 	
 	public int registerUser(UserDetails user);
-	public UserDetails getUserById(int userId);
+	//public UserDetails getUserById(int userId);
 	public List<UserDetails> getAllUsers();
 	void updateUserStatus(UpdateUserStatus status);
 	//String getEmail(String aadharNumber);

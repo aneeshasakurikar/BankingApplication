@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChangePassword } from '../models/models';
@@ -9,20 +10,14 @@ import { ServicesService } from '../services/services.service';
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent implements OnInit {
-  creds: ChangePassword = new ChangePassword();
-  constructor(private service: ServicesService, private router:Router) { }
+  userId
+  constructor(private http: HttpClient, private router:Router) { }
 
   ngOnInit() {
   }
-  changePassword() {
-    this.service.changePassword(this.creds).subscribe(response => {
-      
-          alert(JSON.stringify(response.message));
-          this.router.navigate(['login']);
-        
-      
-      
-    })
-    
+  sendOtp() {
+    let url = "http://localhost:8084/register";
+    return this.http.post(url, this.userId) ;
+     
   }
 }

@@ -15,7 +15,7 @@ export class UserDetailsComponent implements OnInit {
   user = new UserDetails();
 
   ngOnInit(): void {
-    this.http.get<any>("http://localhost:8084/viewDetails/"+10102) 
+    this.http.get<any>("http://localhost:8084/getUserDetails/"+sessionStorage.getItem('userId')) 
     .subscribe(
       data => {
         this.user = data

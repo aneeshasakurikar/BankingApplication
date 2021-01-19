@@ -2,13 +2,17 @@ package com.lti.services;
 
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
 
 import com.lti.daos.AccountDetailsDAO;
 import com.lti.daos.UserDetailsDAO;
 import com.lti.dto.AccountLogin;
 import com.lti.dto.NetBanking;
+import com.lti.dto.SetNewPasswordDTO;
 import com.lti.entities.AccountDetails;
+import com.lti.entities.UserDetails;
 
 @Service
 public class AccountDetailsServiceImpl implements AccountDetailsService {
@@ -18,6 +22,9 @@ public class AccountDetailsServiceImpl implements AccountDetailsService {
 	
 	@Autowired
 	UserDetailsDAO userDetailsDAO;
+	
+	@Autowired
+	private MailSender emailSender;
 
 	@Override
 	public boolean loginUser(AccountLogin accountLogin) {
@@ -66,22 +73,64 @@ public void resetPassword(int userId, String loginPassword) {
 
 	}
 
-	public void setNetBankingPassword(NetBanking netBanking) {
+//	public void setNetBankingPassword(NetBanking netBanking) {
+//		
+//		if(!accountDetailsDAO.userExist(netBanking.getUserId())) {
+//			throw new ServiceException("No such Account Exists");
+//		}
+//		if(!accountDetailsDAO.checkCredentials(netBanking.getUserId(),netBanking.getInitialLoginPassword())) {
+//			throw new ServiceException("Wrong Login Password");
+//		}
+//		if(!accountDetailsDAO.getTransactionPassword(accountDetailsDAO.getAccountNumber(netBanking.getUserId())).equalsIgnoreCase(netBanking.getInitialTransactionPassword())) {
+//			throw new ServiceException("Wrong Transaction Password");
+//		}
+//		
+//		accountDetailsDAO.updateLoginPassword(netBanking.getUserId(), netBanking.getFinalLoginPassword());
+//		accountDetailsDAO.updateTransactionPassword(netBanking.getUserId(), netBanking.getFinalTransactionPassword());
+//	
+//	}
+
+
+	@Override
+	public void setNetBankingDetails(NetBanking netBanking) {
+		if(!accountDetailsDAO.accountExists(netBanking.getAccountNumber())) {
+			throw new ServiceException("Please enter valid Account Number");
+		}
+		if(accountDetailsDAO.firstRegistration(netBanking.getAccountNumber())!=null) {
+			System.out.println("not 1st");
+			throw new ServiceException("You have already registered for net Banking");
+		}
+		System.out.println("out of if");
+		accountDetailsDAO.saveNewNetBanking(netBanking.getAccountNumber(), netBanking.getLoginPassword(), netBanking.getTransactionPassword());
 		
-		if(!accountDetailsDAO.userExist(netBanking.getUserId())) {
-			throw new ServiceException("No such Account Exists");
-		}
-		if(!accountDetailsDAO.checkCredentials(netBanking.getUserId(),netBanking.getInitialLoginPassword())) {
-			throw new ServiceException("Wrong Login Password");
-		}
-		if(!accountDetailsDAO.getTransactionPassword(accountDetailsDAO.getAccountNumber(netBanking.getUserId())).equalsIgnoreCase(netBanking.getInitialTransactionPassword())) {
-			throw new ServiceException("Wrong Transaction Password");
-		}
+		System.out.println("saved");
+		int userId = accountDetailsDAO.getUserId(netBanking.getAccountNumber());
+		String email = userDetailsDAO.getEmailByReferenceId(accountDetailsDAO.getReferenceId(netBanking.getAccountNumber()));
+		SimpleMailMessage message = new SimpleMailMessage();
+		message.setFrom("contact.ltibankingservices@gmail.com");
+		message.setTo(email );
+		message.setSubject("Net Banking Registration");		
+		message.setText("You have successfully registered for Net Banking! Your userId is: "+userId+". ");
+		emailSender.send(message);
 		
-		accountDetailsDAO.updateLoginPassword(netBanking.getUserId(), netBanking.getFinalLoginPassword());
-		accountDetailsDAO.updateTransactionPassword(netBanking.getUserId(), netBanking.getFinalTransactionPassword());
-	
+		}
+
+
+	@Override
+	public UserDetails getUserById(int intUserId) {
+		int referenceId = accountDetailsDAO.getReferenceIdByUserId(intUserId);
+		return userDetailsDAO.getUserDetailsByReferenceId(referenceId);
 	}
+
+
+
+	public void setNewPassword(SetNewPasswordDTO newPass) {
+		int intUserId = Integer.parseInt(newPass.getUserId());
+		accountDetailsDAO.updateLoginPassword(intUserId, newPass.getLoginPassword());
+		accountDetailsDAO.updateTransactionPassword(intUserId, newPass.getTransactionPassword());
+		
+	}
+	
 
 
 

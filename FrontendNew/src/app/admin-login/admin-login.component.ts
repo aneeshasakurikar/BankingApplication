@@ -29,7 +29,7 @@ message:String;
   loginCheck(){
     console.log(this.login);
     this.loginService.login(this.login).subscribe(response => {
-      alert(JSON.stringify(response));
+      //alert(JSON.stringify(response));
       console.log(response);
       if(response.status== 'SUCCESS') {
         let adminId = response.userId;

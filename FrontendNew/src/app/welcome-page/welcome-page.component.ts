@@ -15,7 +15,7 @@ export class WelcomePageComponent implements OnInit {
   constructor(private http: HttpClient,private router:Router) { }
 
   ngOnInit(): void {
-    this.http.get<any>("http://localhost:8084/viewDetails/"+sessionStorage.getItem('userId')) //sessionStorage.getItem('userId')
+    this.http.get<any>("http://localhost:8084/getUserDetails/"+sessionStorage.getItem('userId')) //sessionStorage.getItem('userId')
     .subscribe(
       data => {
         this.user = data

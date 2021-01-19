@@ -1,14 +1,23 @@
 <app-header></app-header>
 <div class="checkstatus">
-<form (ngSubmit)="checkStatus()">
+<form (ngSubmit)="checkStatus()" #frm="ngForm">
         <div id="login-box">
 
             <h2 align="center" style="padding-bottom: 15px;"> Registration Status</h2>
 
             <div id="login-box-name" >Refrence Id:</div>
             <div id="login-box-field">
-                <input name="q" class="form-login" title="Username" value="" size="10" maxlength="2048" [(ngModel)]="userId"/>
+                <input name="q" class="form-login" required pattern="[0-9]{5}" #accNo="ngModel" title="Username" value="" size="10" maxlength="2048" [(ngModel)]="refId"/>
+                <div *ngIf="accNo?.touched && accNo?.invalid" class="alert alert-danger">
+                    <div *ngIf="accNo.errors?.required">
+                        Reference Id is required
+                    </div>
+                    <div *ngIf="accNo.errors?.pattern">
+                        Enter valid Value
+                    </div>
+                    </div>
             </div>
+            
             <!-- <div id="login-box-name">Password:</div>
             <div id="login-box-field">
                 <input name="q" type="password" class="form-login" title="Password" value="" size="30"
@@ -18,7 +27,7 @@
             <br />
             <br />
             <div align="center">
-                <button id="login-button" type="submit" value="Log In">Check Status</button>
+                <button id="login-button" type="submit" value="Log In" [disabled]="!frm.valid">Check Status</button>
             </div>
         </div>
 

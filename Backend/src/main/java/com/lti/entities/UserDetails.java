@@ -13,22 +13,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user_details_table")
-//@NamedQuery(name="getAllUnapprovedUsers", query="from UserDetails ud where ud.status=0") 
-//@NamedQuery(name="updateUserStatus", query="update UserDetails set status = :status, adminRemarks = :adminRemarks where aadharNumber = :aadharNumber ") 
-@NamedQuery(name="checkIfUserApproved", query="select status from UserDetails where userId = :userId") 
-@NamedQuery(name="getEmailByAadharNumber", query="select emailId from UserDetails where aadharNumber = :aadharNumber") 
-//@NamedQuery(name="getAccountNumberByAadharNumber", query="select accountNumber from UserDetails where aadharNumber = :aadharNumber") 
-//@NamedQuery(name="deleteUserByAadharNumber", query="delete from UserDetails where aadharNumber = :aadharNumber")
-//@NamedQuery(name="getLastAccountNumber", query="select max(accountNumber) from UserDetails")
-//@NamedQuery(name="getnumOfUsers", query="select count(*) from UserDetails")
-@SequenceGenerator(name = "user_gen", sequenceName = "user_gen", initialValue = 10101)
+@SequenceGenerator(name = "ref_gen", sequenceName = "ref_gen", initialValue = 10101)
 public class UserDetails {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO, generator = "user_gen")
-	private int userId;
-	
-	//private int accountNumber;
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "ref_gen")
+	private int referenceId;
+
+	// private int accountNumber;
 
 	@Column(length = 5)
 	private String title;
@@ -72,7 +64,7 @@ public class UserDetails {
 
 	@Column(length = 6)
 	private int pincode;
-	
+
 	@Column(length = 10)
 	private String occupationType;
 
@@ -81,7 +73,7 @@ public class UserDetails {
 	private String annualIncome;
 	private boolean status;
 	private String adminRemarks;
-	
+
 //	public int getAccountNumber() {
 //		return accountNumber;
 //	}
@@ -102,12 +94,12 @@ public class UserDetails {
 		this.adminRemarks = adminRemarks;
 	}
 
-	public int getUserId() {
-		return userId;
+	public int getReferenceId() {
+		return referenceId;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setReferenceId(int referenceId) {
+		this.referenceId = referenceId;
 	}
 
 	public String getTitle() {
@@ -165,7 +157,7 @@ public class UserDetails {
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
-	
+
 	public String getAadharNumber() {
 		return aadharNumber;
 	}
@@ -181,7 +173,7 @@ public class UserDetails {
 	public void setDateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
-	
+
 	public String getAddressLine1() {
 		return addressLine1;
 	}

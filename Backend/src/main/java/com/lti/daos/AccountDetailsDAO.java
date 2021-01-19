@@ -10,7 +10,7 @@ public interface AccountDetailsDAO {
 
 	long numOfUser();
 
-	void saveAccountDetails(int accountNumber, int userId, String loginPassword, String transactionPassword);
+	void saveAccountDetails(int accountNumber, int userId, int referenceId);
 
 	
 	boolean userExist(int beneficiaryAccountnumber);
@@ -35,4 +35,16 @@ public interface AccountDetailsDAO {
 	void updateLoginPassword(int userId, String loginPassword);
 
 	void updateTransactionPassword(int userId, String initialTransactionPassword);
+
+	int getLastUserId();
+
+	void saveNewNetBanking(int accountNumber, String loginPassword, String transactionPassword);
+
+	int getUserId(int accountNumber);
+
+	int getReferenceId(int accountNumber);
+
+	String firstRegistration(int accountNumber);
+
+	int getReferenceIdByUserId(int intUserId);
 }

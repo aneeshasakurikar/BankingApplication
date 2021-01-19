@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
-import { AddTransaction, Beneficiary, ChangePassword, LoginCreds, NetbankingRegistration, UserDetails } from '../models/models';
+import { AddTransaction, Beneficiary, ChangePassword, LoginCreds, NetbankingRegistration, NewPassword, UserDetails } from '../models/models';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +41,11 @@ export class ServicesService {
   changePassword(creds : ChangePassword) : Observable<any>{
     let url = "http://localhost:8084/forgetLoginPassword";
     return this.http.post(url, creds);
+  }
+
+  setNewPassword(pass : NewPassword) : Observable<any>{
+    let url = "http://localhost:8084/setNewPassword";
+    return this.http.post(url, pass);
   }
 
 }

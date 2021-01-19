@@ -58,11 +58,9 @@ export class UserAccountDetails{
 
 export class NetbankingRegistration{
     
-    public userId :number;
-    public initialLoginPassword :string;
-    public finalLoginPassword :string;
-    public initialTransactionPassword  :string;
-    public finalTransactionPassword  :string;
+    public accountNumber :number;
+    public loginPassword :string;
+    public transactionPassword  :string;
 }
 
 export class TransactionDetails{
@@ -78,4 +76,11 @@ export class ChangePassword{
     
     public userId :number;
     public loginPassword  :string;
+}
+
+export class NewPassword{
+    
+    public userId :string;
+    public loginPassword  :string;
+    public transactionPassword :string;
 }

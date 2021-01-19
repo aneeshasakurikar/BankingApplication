@@ -25,8 +25,7 @@ export class NeftFormComponent implements OnInit {
     this.service.addTransaction(this.transaction).subscribe(response => {
       
           alert(JSON.stringify(response.message));
-          this.router.navigate(['neftPayment']);
-        
+          location.reload();
       
       
     })

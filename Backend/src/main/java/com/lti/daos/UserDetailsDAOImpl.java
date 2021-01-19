@@ -22,7 +22,31 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 		UserDetails newUserDetails = entityManager.merge(userDetails);
 		return newUserDetails;
 	}
+	
+	
+	@Override
+	public int getReferenceId(String aadharNumber) {
+		return (int) entityManager.createQuery("select referenceId from UserDetails where aadharNumber= :aadharNumber")
+				.setParameter("aadharNumber", aadharNumber).getSingleResult();
+	}
+	
+	@Override
+	@Transactional
+	public void updateUserStatus(String aadharNumber, Boolean adminApproval, String adminRemarks) {
+		System.out.println(adminApproval + " " + adminRemarks + " " + aadharNumber);
+		entityManager.createQuery(
+				"update UserDetails set status = :status, adminRemarks = :adminRemarks where aadharNumber = :aadharNumber")
+				.setParameter("aadharNumber", aadharNumber).setParameter("status", adminApproval)
+				.setParameter("adminRemarks", adminRemarks).executeUpdate();
 
+	}
+
+	@Override
+	public String getUserEmailByAadharNumber(String aadharNumber) {
+		return (String) entityManager.createQuery("select emailId from UserDetails where aadharNumber= :aadharNumber")
+				.setParameter("aadharNumber", aadharNumber).getSingleResult();
+	}
+	
 	@Override
 	public boolean isUserPresent(String aadharNumber) {
 		return (Long) entityManager
@@ -37,16 +61,17 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 	}
 
 	@Override
-	@Transactional
-	public void updateUserStatus(String aadharNumber, Boolean adminApproval, String adminRemarks) {
-		System.out.println(adminApproval + " " + adminRemarks + " " + aadharNumber);
-		entityManager.createQuery(
-				"update UserDetails set status = :status, adminRemarks = :adminRemarks where aadharNumber = :aadharNumber")
-				.setParameter("aadharNumber", aadharNumber).setParameter("status", adminApproval)
-				.setParameter("adminRemarks", adminRemarks).executeUpdate();
-
+	public boolean doesReferenceIdExists(int referenceId) {
+		return (Long) entityManager.createQuery("select count(referenceId) from UserDetails where referenceId =:referenceId").setParameter("referenceId", referenceId)
+				.getSingleResult() == 1?true:false;
 	}
 
+	@Override
+	public boolean isUserApproved(int referenceId) {
+		return (boolean)entityManager.createQuery("select status from UserDetails where referenceId=:referenceId").setParameter("referenceId", referenceId)
+				.getSingleResult();
+	}
+	
 	@Override
 	@Transactional
 	public void deleteUser(String aadharNumber) {
@@ -56,28 +81,13 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 	}
 
 	@Override
-	public int getUserId(String aadharNumber) {
-		return (int) entityManager.createQuery("select userId from UserDetails where aadharNumber= :aadharNumber")
-				.setParameter("aadharNumber", aadharNumber).getSingleResult();
+	public String getEmailByReferenceId(int referenceId) {
+		return (String) entityManager.createQuery("select emailId from UserDetails where referenceId= :referenceId")
+				.setParameter("referenceId", referenceId).getSingleResult();
 	}
-	
-	@Override
-	public UserDetails getUserDetailsByUserId(int userId) {
 		
-		return entityManager.find(UserDetails.class, userId);
-	}
 
-	@Override
-	public boolean isUserApproved(int userId) {
-		return (boolean) entityManager.createNamedQuery("checkIfUserApproved").setParameter("userId", userId)
-				.getSingleResult();
-	}
-
-	@Override
-	public String getUserEmailByAadharNumber(String aadharNumber) {
-		return (String) entityManager.createNamedQuery("getEmailByAadharNumber")
-				.setParameter("aadharNumber", aadharNumber).getSingleResult();
-	}
+	
 
 	@Override
 	public int getAccountNumberByAadharNumber(String aadharNumber) {
@@ -85,10 +95,15 @@ public class UserDetailsDAOImpl implements UserDetailsDAO {
 				.setParameter("aadharNumber", aadharNumber).getSingleResult();
 	}
 
+
 	@Override
-	public boolean doesUserIdExists(int userId) {
-		return (long) entityManager.createQuery("select count(userId) from UserDetails where userId =:userId").setParameter("userId", userId)
-				.getSingleResult() == 1?true:false;
+	public UserDetails getUserDetailsByReferenceId(int referenceId) {
+		return entityManager.find(UserDetails.class, referenceId);
 	}
+
+
+	
+
+	
 	
 }

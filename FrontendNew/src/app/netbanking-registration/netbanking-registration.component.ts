@@ -19,7 +19,7 @@ export class NetbankingRegistrationComponent implements OnInit {
     this.service.netbankingRegistration(this.credentials).subscribe(response => {
       
           alert(JSON.stringify(response.message));
-          this.router.navigate(['userLogin']);
+          location.reload();
         }
       
       

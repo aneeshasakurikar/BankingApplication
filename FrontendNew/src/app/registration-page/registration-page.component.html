@@ -14,7 +14,7 @@
             <br>
 
             <label for="firstName">First Name<span style="color:red">*</span></label>
-            <input type="text" maxlength="25" required  pattern="[a-zA-Z][a-zA-z]+" name="firstName" size="20" id="firstName" #firstName="ngModel" [(ngModel)]="user.firstName" /> <br> <br>
+            <input type="text" maxlength="15" required  pattern="[a-zA-Z][a-zA-z]+" name="firstName" size="20" id="firstName" #firstName="ngModel" [(ngModel)]="user.firstName" /> <br> <br>
             
             <div *ngIf="firstName?.touched && firstName?.invalid" class="alert alert-danger">
                 <div *ngIf="firstName.errors?.required">
@@ -27,7 +27,7 @@
 
 
             <label>Last Name<span style="color:red">*</span></label>
-            <input type="text" maxlength="25" required  pattern="[a-zA-Z][a-zA-z]+" name="lastname" size="20" id="lastName" #lastName="ngModel" [(ngModel)]="user.lastName" /> <br> <br>
+            <input type="text" maxlength="15" required  pattern="[a-zA-Z][a-zA-z]+" name="lastname" size="20" id="lastName" #lastName="ngModel" [(ngModel)]="user.lastName" /> <br> <br>
             <div *ngIf="lastName?.touched && lastName?.invalid" class="alert alert-danger">
                 <div *ngIf="lastName.errors?.required">
                     Last name is required
@@ -39,16 +39,16 @@
 
 
             <label>Middle Name</label>
-            <input type="text" maxlength="25" name="middlename" size="20" id="middleName" [(ngModel)]="user.middleName" /> <br> <br>
-            <div *ngIf="fatherName?.touched && fatherName?.invalid" class="alert alert-danger">
-                <div *ngIf="fatherName.errors?.pattern">
+            <input type="text" maxlength="15" name="middlename" pattern="[a-zA-Z][a-zA-z]+" size="20" #middleName="ngModel" id="middleName" [(ngModel)]="user.middleName" /> <br> <br>
+            <div *ngIf="middleName?.touched && middleName?.invalid" class="alert alert-danger">
+                <div *ngIf="middleName.errors?.pattern">
                     Only aplhabets
                 </div>
                 </div>
 
 
             <label>Father's Name<span style="color:red">*</span></label>
-            <input type="text" maxlength="25" required  pattern="[a-zA-Z][a-zA-z]+" name="fathername" size="20" #fatherName="ngModel" [(ngModel)]="user.fatherName" /> <br> <br>
+            <input type="text" maxlength="15" required  pattern="[a-zA-Z][a-zA-z]+" name="fathername" size="20" #fatherName="ngModel" [(ngModel)]="user.fatherName" /> <br> <br>
             <div *ngIf="fatherName?.touched && fatherName?.invalid" class="alert alert-danger">
                 <div *ngIf="fatherName.errors?.required">
                     Father's name is required
@@ -105,7 +105,7 @@
 
 
             <label>Address Line 1<span style="color:red">*</span></label>
-            <input type="text" required pattern="[a-zA-Z][a-zA-z]+" #add="ngModel" name="add1" size="20" [(ngModel)]="user.addressLine1" />
+            <input type="text" required pattern="^[#.0-9a-zA-Z\s,-]+$" #add="ngModel" name="add1" size="20" [(ngModel)]="user.addressLine1" />
             <div *ngIf="add?.touched && add?.invalid" class="alert alert-danger">
                 <div *ngIf="add.errors?.required">
                     Address is required

@@ -43,25 +43,7 @@ public class BeneficiaryController {
 		
 	}
 	
-//	@PostMapping(path = "/addBeneficiary")
-//	public Status addNewBeneficiary(@RequestBody BeneficiaryDTO benf) {
-//		System.out.println(benf);
-//		try {
-//			beneficiaryService.save(benf);
-//			Status status = new Status();
-//			status.setMessage("Beneficiary Added");
-//			status.setStatus(StatusType.SUCCESS);
-//			return status;
-//		}
-//		catch(ServiceException e) 
-//		{
-//			Status status = new Status();
-//			status.setMessage(e.getMessage());
-//			status.setStatus(StatusType.FAILED);
-//			return status;
-//		}
-//	}
-//	
+
 	@GetMapping(path="/viewBeneficiaryList/{userId}")
 	private List<Integer> viewBeneficiaryList(@PathVariable(value = "userId") String userId){
 		int intUserId = Integer.parseInt(userId);

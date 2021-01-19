@@ -23,14 +23,13 @@ public class AccountDetails {
 
 	private int userId;
 
+	private int referenceId;
 
 	@Column(length = 15)
 	private String loginPassword;
 
 	@Column(length = 4)
 	private String transactionPassword;
-	private String lastLogin;
-	private int invalidAttempts;
 	private int balance = 10000;
 
 	public int getAccountNumber() {
@@ -39,6 +38,14 @@ public class AccountDetails {
 
 	public void setAccountNumber(int accountNumber) {
 		this.accountNumber = accountNumber;
+	}
+
+	public int getReferenceId() {
+		return referenceId;
+	}
+
+	public void setReferenceId(int referenceId) {
+		this.referenceId = referenceId;
 	}
 
 	public int getUserId() {
@@ -63,22 +70,6 @@ public class AccountDetails {
 
 	public void setTransactionPassword(String transactionPassword) {
 		this.transactionPassword = transactionPassword;
-	}
-
-	public String getLastLogin() {
-		return lastLogin;
-	}
-
-	public void setLastLogin(String lastLogin) {
-		this.lastLogin = lastLogin;
-	}
-
-	public int getInvalidAttempts() {
-		return invalidAttempts;
-	}
-
-	public void setInvalidAttempts(int invalidAttempts) {
-		this.invalidAttempts = invalidAttempts;
 	}
 
 	public int getBalance() {
